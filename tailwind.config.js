@@ -8,6 +8,28 @@ module.exports = {
           'white-glass': 'rgba(68, 68, 90, 0.4)',
           'blue': '#92B1FD',
         },
+        boxShadow: {
+          'white': '0px 0px 9px 0px rgba(255, 248, 248, 0.1)',
+        },
+        // keyframes: {
+        //   bounceButton:{
+        //     '0%': {transform: 'translateY(-5px)'},
+        //     'to': {transform: 'translateY(0px)'}
+        //   }
+        // }
+        keyframes: { 
+          bounceButton: {
+              'from': {
+                  transform: 'translateY(-5px)'
+              },
+              'to': {
+                  transform: 'translateY(0px)'
+              },
+          }
+        },
+        animation: {
+            bounceButton: 'bounceButton .3s cubic-bezier(0.215, 0.610, 0.355, 1)',
+        }
       },
       fontFamily:{
         poppins: ['Poppins', 'sans-serif']
