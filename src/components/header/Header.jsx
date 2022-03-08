@@ -5,7 +5,7 @@ import {FaSun , FaMoon} from 'react-icons/fa'
 const Header = () => {
     return (
         <header className='w-full h-[15vh] bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 backdrop-blur-sm border-b-2 border-blue-500 hidden lg:flex items-center justify-between px-10'>
-            <img className='l w-[120px] h-[70px]' src="https://i.imgur.com/KVwBOVw.png" alt="logo"/>
+            <img className='l w-[120px] h-[80px]' src="https://i.imgur.com/KVwBOVw.png" alt="logo"/>
             <nav className='flex justify-between space-x-5 bg-white-glass backdrop-blur-sm text-white text-xl font-bold py-2 px-10  rounded-lg border-2 border-transparent hover:border-blue transition-all duration-300'>
                 <Link 
                     to="#"  
