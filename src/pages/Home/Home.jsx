@@ -1,8 +1,12 @@
 import React from 'react';
+import BannerHero from '../../components/BannerHero/BannerHero';
 
 const Home = () => {
     return (
-        <h1>Hola</h1>
+        <section className='w-full min-w-[320px]'>
+            <h1 className='hidden'>HomeSection</h1>
+            <BannerHero/>
+        </section>
     );
 }
 

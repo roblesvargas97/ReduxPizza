@@ -11,6 +11,9 @@ module.exports = {
         boxShadow: {
           'white': '0px 0px 9px 0px rgba(255, 248, 248, 0.1)',
         },
+        backgroundImage: {
+          'pizza-background': "url('https://i.imgur.com/35KpZMB.jpg')"
+        },
         keyframes: { 
           bounceButton: {
               'from': {
