@@ -22,10 +22,16 @@ module.exports = {
               'to': {
                   transform: 'translateY(0px)'
               },
+          },
+          rotateOrnament: {
+            'to':{
+              transform: 'rotate(360deg)' 
+            }
           }
         },
         animation: {
             bounceButton: 'bounceButton .3s cubic-bezier(0.215, 0.610, 0.355, 1)',
+            rotateOrnament:'rotateOrnament infinite linear 10s',
         }
       },
       fontFamily:{

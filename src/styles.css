@@ -14,3 +14,24 @@
         transform: translateY(0px);
     }
 } */
+
+.letterA{
+    animation: letters linear infinite 4s;
+}
+
+.letterAB{
+    animation: lettersAB linear infinite 4s;
+}
+
+
+@keyframes letters {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-50%);
+    }
+    100%{
+        transform: translateY(-100%) ;
+    }
+}
