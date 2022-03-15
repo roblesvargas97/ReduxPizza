@@ -26,12 +26,16 @@
 
 @keyframes letters {
     0%{
+        opacity: .5;
         transform: translateY(0);
     }
+    20%{
+        opacity: 1;
+    }
     50%{
-        transform: translateY(-50%);
+        transform: translateY(-65%);
     }
     100%{
-        transform: translateY(-100%) ;
+        transform: translateY(-130%) ;
     }
 }
