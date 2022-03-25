@@ -94,8 +94,8 @@ const CircleOrnamentRight = () => {
             <path d="M280.286 400.071C280.286 403.898 277.184 407 273.357 407C269.531 407 266.429 403.898 266.429 400.071C266.429 396.245 269.531 393.143 273.357 393.143C277.184 393.143 280.286 396.245 280.286 400.071Z" fill="#00FFFF"/>
             </g>
             <defs>
-            <filter id="filter0_d_10_64" x="0" y="0" width="428" height="428" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <filter id="filter0_d_10_64" x="0" y="0" width="428" height="428" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
             <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
             <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_10_64"/>
             <feOffset dx="3" dy="1"/>
