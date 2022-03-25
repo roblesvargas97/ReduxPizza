@@ -15,27 +15,17 @@
     }
 } */
 
-.letterA{
-    animation: letters linear infinite 4s;
-}
-
-.letterAB{
-    animation: lettersAB linear infinite 4s;
+/* .letterA{
+    animation: letters linear infinite 6s;
 }
 
 
 @keyframes letters {
-    0%{
-        opacity: .5;
-        transform: translateY(0);
-    }
-    20%{
-        opacity: 1;
-    }
-    50%{
-        transform: translateY(-65%);
-    }
-    100%{
-        transform: translateY(-130%) ;
-    }
-}
+    
+    0%,5%{transform:translate3d(0,0,0);}
+    20%,25%{transform:translate3d(0,-33.3%,0);}
+    50%,55%{transform:translate3d(0,-66.6%,0);}
+    70%,75%{transform:translate3d(0,-33.3%,0);}
+    100%{transform:translate3d(0,0,0);}
+    
+} */

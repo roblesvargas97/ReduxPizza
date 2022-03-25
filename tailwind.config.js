@@ -8,9 +8,6 @@ module.exports = {
           'white-glass': 'rgba(68, 68, 90, 0.4)',
           'blue': '#92B1FD',
         },
-        boxShadow: {
-          'white': '0px 0px 9px 0px rgba(255, 248, 248, 0.1)',
-        },
         backgroundImage: {
           'pizza-background': "url('https://i.imgur.com/35KpZMB.jpg')"
         },
@@ -27,11 +24,20 @@ module.exports = {
             'to':{
               transform: 'rotate(360deg)' 
             }
+          },
+          wordsAnimation:{
+            '0%,5%':{transform:'translate3d(0,0,0);'},
+            '20%,25%':{transform:'translate3d(0,-33.3%,0);'},
+            '50%,55%':{transform:'translate3d(0,-66.6%,0);'},
+            '70%,75%':{transform:'translate3d(0,-33.3%,0);'},
+            '100%':{transform:'translate3d(0,0,0);'},
+
           }
         },
         animation: {
             bounceButton: 'bounceButton .3s cubic-bezier(0.215, 0.610, 0.355, 1)',
             rotateOrnament:'rotateOrnament infinite linear 10s',
+            wordsAnimation: 'wordsAnimation linear infinite 6s;'
         }
       },
       fontFamily:{
