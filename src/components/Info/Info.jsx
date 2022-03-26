@@ -19,7 +19,7 @@ const Info = () => {
     ];
 
     return (
-        <div className=" w-full min-h-[45vh] flex flex-col p-5 bg-white space-y-5 ">
+        <div className=" w-full min-h-[45vh] flex flex-col p-5 md:flex-row bg-white space-y-5 lg:p-10 md:justify-center md:items-center md:space-x-5 md:space-y-0 ">
             {infoArray.map((element , index) => <InfoItem key={index} icon={element.icon} text={element.text} />)}
         </div>
     );
