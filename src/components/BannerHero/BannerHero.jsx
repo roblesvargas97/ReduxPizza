@@ -3,7 +3,6 @@ import BannetText from '../BannerText/BannetText';
 import CircleOrnamentLeft from '../CircleOrnamentLeft/CircleOrnamentLeft';
 import CircleOrnamentRight from '../CircleOrnamentRight/CircleOrnamentRight';
 
-
 const BannerHero = () => {
     return (
         <div className="w-full h-[40vh] overflow-hidden bg-pizza-background bg-cover relative ">
