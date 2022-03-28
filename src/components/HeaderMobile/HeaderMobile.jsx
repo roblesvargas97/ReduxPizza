@@ -3,7 +3,7 @@ import {FaSun , FaMoon , FaBars} from 'react-icons/fa';
 
 const HeaderMobile = () => {
     return (
-        <div className=" w-full h-[15vh] flex items-center justify-between px-10 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 border-b-2 border-blue backdrop-blur-sm min-w-[320px] lg:hidden ">
+        <div className=" w-full h-[15vh] flex items-center justify-between px-10 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 border-b-2 border-blue backdrop-blur-sm min-w-[320px] md:hidden ">
             <button type='button' className='text-white cursor-pointer transition-all duration-300 ease-in-out'>
                 <FaBars size="30px"/>
             </button>

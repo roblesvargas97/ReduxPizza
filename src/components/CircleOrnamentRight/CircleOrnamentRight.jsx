@@ -2,7 +2,7 @@ import React from 'react';
 
 const CircleOrnamentRight = () => {
     return (
-        <svg  className=' w-52 h-52 absolute right-[-40%] top-[calc(50%-104px)] animate-rotateOrnament' viewBox="0 0 428 428" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg  className=' w-52 h-52 md:h-64 md:w-64 absolute right-[-35%] md:right-[-10%] lg:right-[-5%] top-[calc(50%-104px)] md:md:top-[calc(50%-128px)]  animate-rotateOrnament' viewBox="0 0 428 428" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_10_64)">
             <path d="M391.145 109.236C392.219 111.097 393.265 112.977 394.283 114.874C392.435 113.664 391.2 111.596 391.145 109.236Z" fill="#00FFFF"/>
             <path d="M353.208 61.4022C356.436 64.4321 359.568 67.5639 362.598 70.7925C361.426 72.9578 359.135 74.4286 356.5 74.4286C352.673 74.4286 349.571 71.3265 349.571 67.5C349.571 64.8652 351.042 62.5738 353.208 61.4022Z" fill="#00FFFF"/>
