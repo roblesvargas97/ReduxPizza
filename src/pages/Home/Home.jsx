@@ -1,6 +1,7 @@
 import React from 'react';
 import BannerHero from '../../components/BannerHero/BannerHero';
 import Info from '../../components/Info/Info';
+import PizzaMenu from '../PizzaMenu/PizzaMenu';
 
 const Home = () => {
     return (
@@ -8,6 +9,7 @@ const Home = () => {
             <h1 className='hidden'>HomeSection</h1>
             <BannerHero/>
             <Info/>
+            <PizzaMenu/>
         </section>
     );
 }
