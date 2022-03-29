@@ -8,7 +8,7 @@ module.exports = {
    filename: 'index.bundle.js'
  },
  resolve: {
-    extensions: ['.js' , '.jsx'],
+    extensions: ['.js' , '.jsx' , '.png'],
 },
   // webpack 5 comes with devServer which loads in development mode
 devServer: {
@@ -30,8 +30,13 @@ devServer: {
      {
        test: /\.css$/,
        use: ['style-loader', 'css-loader' , 'postcss-loader']
-     }
+     },
+     {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+     },
    ]
  },
+
  plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })],
 }
