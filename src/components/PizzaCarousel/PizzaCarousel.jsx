@@ -28,7 +28,7 @@ const PizzaCarousel = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -36,7 +36,7 @@ const PizzaCarousel = () => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 767,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -99,7 +99,7 @@ const PizzaCarousel = () => {
   ];
 
   return (
-    <div>
+    <div className="" >
       <Slider {...settings}>
         {pizzasMenu.map((element, index) => (
           <PizzaCarouselItem key={index} infoPizza={element} />
