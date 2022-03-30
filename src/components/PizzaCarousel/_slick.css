@@ -122,3 +122,10 @@
     width: 100%;
     min-width: 320px;
 }
+
+.main-container{
+    display: flex !important;
+    justify-content: center;
+    height: 60vh;
+
+}
