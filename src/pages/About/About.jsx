@@ -5,8 +5,8 @@ import SwirlOrnament from "../../components/SwirlOrnament/SwirlOrnament";
 
 const About = () => {
   return (
-    <div className=" w-full min-h-[85vh] overflow-hidden p-5 bg-white flex flex-col md:items-center lg:flex-row justify-center space-y-5 lg:space-y-0 ">
-      <section className=" relative lg:w-[50%] flex flex-col items-center lg:items-start space-y-2">
+    <div className=" w-full min-h-[85vh] overflow-hidden p-5  bg-white flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0 ">
+      <section className=" relative lg:w-[50%]  flex flex-col items-center bg-red-500 lg:items-start space-y-2">
         <SwirlOrnament
           styles=" absolute lg:h-96 lg:top-[-75%] lg:left-[50%] md:left-[15%] md:top-[-100%]  hidden md:block  "
           fillColor="#92b1fd"
@@ -32,7 +32,7 @@ const About = () => {
           alt="Pizza"
         />
       </section>
-      <section className=" space-y-2 lg:w-[50%] z-10">
+      <section className=" space-y-2 lg:w-[50%]  flex flex-col bg-red-500 z-10">
         <h2 className=" text-4xl md:text-7xl lg:text-6xl text-dark-blue font-bold text-center ">
           Informacion
         </h2>
