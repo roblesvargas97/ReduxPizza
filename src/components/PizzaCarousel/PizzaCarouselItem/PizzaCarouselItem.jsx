@@ -8,8 +8,8 @@ const PizzaCarouselItem = ({ infoPizza }) => {
     <div className="main-container ">
       <div className=" w-[90%] h-[60vh] border-2 border-white rounded-lg relative shadow-lg shadow-white/50">
         <div className=" absolute top-0 left-0 w-full backdrop-blur h-[60%] rounded-t-lg bg-gradient-to-tl from-sky-500 via-transparent to-transparent -z-10"></div>
-        <div className=" relative h-[50%] flex flex-col justify-center items-center ">
-          <img className=" object-scale-down h-60 " src={img} alt="" />
+        <div className=" relative h-[50%] md:h-[60%] lg:h-[50%] flex flex-col justify-center items-center ">
+          <img className=" object-scale-down h-60 md:h-80 lg:h-60 " src={img} alt="" />
           <button
             data-mdb-ripple="true"
             data-mdb-ripple-color="light"
@@ -18,7 +18,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
             <FaCartPlus />
           </button>
         </div>
-        <div className=" h-[50%] bg-gradient-to-tr from-sky-500 via-sky-200 to-white space-y-3  rounded-b-lg p-2 flex flex-col justify-center items-center">
+        <div className=" h-[50%]  md:h-[40%] lg:h-[50%] bg-gradient-to-tr from-sky-500 via-sky-200 to-white space-y-3  rounded-b-lg p-2 flex flex-col justify-center items-center">
           <h4 className=" text-3xl md:text-xl font-bold text-dark-blue">{name}</h4>
           <button
             data-mdb-ripple="true"
