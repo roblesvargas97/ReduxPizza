@@ -7,7 +7,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
   return (
     <div className="main-container ">
       <div className=" w-[90%] h-[60vh] border-2 border-white rounded-lg relative shadow-lg shadow-white/50">
-        <div className=" absolute top-0 left-0 w-full backdrop-blur h-[60%] bg-clip-padding rounded-t-lg bg-gradient-to-tl from-sky-500 via-transparent to-transparent -z-10"></div>
+        <div className=" absolute top-0 left-0 w-full backdrop-blur h-[60%] rounded-t-lg bg-gradient-to-tl from-sky-500 via-transparent to-transparent -z-10"></div>
         <div className=" relative h-[50%] flex flex-col justify-center items-center ">
           <img className=" object-scale-down h-60 " src={img} alt="" />
           <button

@@ -14,15 +14,15 @@ const PizzaCarousel = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 2,
+    slidesToScroll:2,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
@@ -99,7 +99,7 @@ const PizzaCarousel = () => {
   ];
 
   return (
-    <div className="" >
+    <div className=" w-full lg:w-[60%]" >
       <Slider {...settings}>
         {pizzasMenu.map((element, index) => (
           <PizzaCarouselItem key={index} infoPizza={element} />

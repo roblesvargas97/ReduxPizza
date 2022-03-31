@@ -78,7 +78,6 @@
 {
     display: none;
     float: left;
-
     height: 65vh;
     min-height: 1px;
 }
@@ -89,7 +88,7 @@
 .slick-slide img
 {
     display: block;
-    height: 65vh;
+
 }
 .slick-slide.slick-loading img
 {
