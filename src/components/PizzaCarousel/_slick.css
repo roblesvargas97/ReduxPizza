@@ -129,3 +129,8 @@
     height: 60vh;
 
 }
+
+.slick-prev:before,
+.slick-next:before {
+   display:none;
+}

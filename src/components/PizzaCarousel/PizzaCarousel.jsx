@@ -8,8 +8,12 @@ import img4Quesos from "../../assets/images/quesos-pizza.png";
 import imgPepperonni from "../../assets/images/pepperonni-pizza.png";
 import img4QuesosPepperonni from "../../assets/images/pepperonni-quesos-pizza.png";
 import PizzaCarouselItem from "./PizzaCarouselItem/PizzaCarouselItem";
+import { FaAngleLeft , FaAngleRight } from "react-icons/fa"; 
 
 const PizzaCarousel = () => {
+
+  const [sliderRef, setSliderRef] = React.useState(null)
+
   var settings = {
     dots: true,
     infinite: true,
@@ -100,8 +104,14 @@ const PizzaCarousel = () => {
   ];
 
   return (
-    <div className=" w-full lg:w-[60%]" >
-      <Slider {...settings}>
+    <div className=" w-full lg:w-[60%] relative" >
+      <button className=" flex items-center justify-center text-4xl text-sky-200 absolute top-[50%] left-[-20px] z-10 h-9 w-9 rounded-lg bg-transparent border-2 border-transparent hover:bg-dark-blue-1 hover:border-white transition-all duration-300 active:scale-75  " onClick={sliderRef?.slickPrev}>
+          <FaAngleLeft/>
+        </button>
+        <button className=" flex items-center justify-center text-4xl text-sky-200 absolute top-[50%] right-[-20px] z-10 h-9 w-9 rounded-lg bg-transparent border-2 border-transparent hover:bg-dark-blue-1 hover:border-white transition-all duration-300 active:scale-75 " onClick={sliderRef?.slickNext}>
+          <FaAngleRight/>
+        </button>
+      <Slider  ref={setSliderRef} {...settings}>
         {pizzasMenu.map((element, index) => (
           <PizzaCarouselItem key={index} infoPizza={element} />
         ))}
