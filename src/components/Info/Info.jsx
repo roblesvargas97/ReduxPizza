@@ -25,7 +25,7 @@ const Info = () => {
             <button
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="info" 
-                className=' absolute top-[-72px] md:top-[-48px] rounded-full   ml-0 w-52 h-16 border-[3px] border-dark-blue flex justify-between items-center font-bold  py-1 px-10 text-xl bg-gradient-to-r from-sky-300 via-sky-100 to-white text-dark-blue hover:scale-105 transition-all' >Menu <FaChevronDown/> </button>
+                className=' absolute top-[-72px] md:top-[-48px] rounded-full   ml-0 w-52 h-16 border-[3px] border-dark-blue hover:border-blue  flex justify-between items-center font-bold  py-1 px-10 text-xl bg-gradient-to-r from-sky-300 via-sky-100 to-white text-dark-blue hover:scale-105 transition-all' >Menu <FaChevronDown/> </button>
         </div>
     );
 }
