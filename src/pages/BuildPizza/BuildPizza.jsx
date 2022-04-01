@@ -3,7 +3,7 @@ import { FaSalesforce } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { setIngredient, removeIngredient } from "../../Slices/pizzaSlice";
 const BuildPizza = () => {
-  const [stateSize, setStateSize] = React.useState("grande");
+  const [stateSize, setStateSize] = React.useState("Grande");
 
   const dispatch = useDispatch();
 
@@ -13,16 +13,59 @@ const BuildPizza = () => {
     const ingredient = e.target.value;
     const ingredientIsChecked = e.target.checked;
     if (!pizzaIngredients.includes(ingredient) && ingredientIsChecked) {
-      dispatch(setIngredient(e.target.value));
+      switch (e.target.value) {
+        case "jamon":
+          return dispatch(setIngredient("Jamon"));
+        case "piña":
+          return dispatch(setIngredient("Piña"));
+        case "pepperonni":
+          return dispatch(setIngredient("Pepperonni"));
+        case "salami":
+          return dispatch(setIngredient("Salami"));
+        case "queso-crema":
+          return dispatch(setIngredient("Queso Crema"));
+        case "queso-parmesano":
+          return dispatch(setIngredient("Queso Parmesano"));
+        case "queso-cheddar":
+          return dispatch(setIngredient("Queso Cheddar"));
+        default:
+          break;
+      }
     }
     if (!ingredientIsChecked) {
-      dispatch(removeIngredient(ingredient));
+      switch (e.target.value) {
+        case "jamon":
+          return dispatch(removeIngredient("Jamon"));
+        case "piña":
+          return dispatch(removeIngredient("Piña"));
+        case "pepperonni":
+          return dispatch(removeIngredient("Pepperonni"));
+        case "salami":
+          return dispatch(removeIngredient("Salami"));
+        case "queso-crema":
+          return dispatch(removeIngredient("Queso Crema"));
+        case "queso-parmesano":
+          return dispatch(removeIngredient("Queso Parmesano"));
+        case "queso-cheddar":
+          return dispatch(removeIngredient("Queso Cheddar"));
+        default:
+          break;
+      }
     }
   };
 
   const onChangeSize = (e) => {
     const size = e.target.value;
-    setStateSize(size);
+    switch (size) {
+      case "grande":
+        return setStateSize("Grande");
+      case "chica":
+        return setStateSize("Chica");
+      case "mediana":
+        return setStateSize("Mediana");
+      default:
+        break;
+    }
   };
 
   const onHandleSubmit = (e) => {

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  ingredientsPizza: [],
+  ingredientsPizza: ['Queso Mozarella'],
 };
 
 export const pizzaSlice = createSlice({
