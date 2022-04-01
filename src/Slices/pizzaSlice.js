@@ -8,12 +8,17 @@ export const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
   reducers: {
-    setIngredients: (state, action) => {
-      state.ingredientsPizza = action.payload;
+    setIngredient: (state, action) => {
+      state.ingredientsPizza.push(action.payload);
+    },
+    removeIngredient: (state, action) => {
+      state.ingredientsPizza = state.ingredientsPizza.filter(
+        (element) => element !== action.payload
+      );
     },
   },
 });
 
-export const { setIngredients } = pizzaSlice.actions;
+export const { setIngredient, removeIngredient } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;

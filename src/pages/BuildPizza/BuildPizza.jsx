@@ -1,6 +1,25 @@
 import React from "react";
-
+import { FaSalesforce } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { setIngredient, removeIngredient } from "../../Slices/pizzaSlice";
 const BuildPizza = () => {
+  const dispatch = useDispatch();
+
+  const pizzaIngredients = useSelector((state) => state.pizza.ingredientsPizza);
+
+  const fsdf = [];
+
+  const clickIngredient = (e) => {
+    const ingredient = e.target.value;
+    const ingredientIsChecked = e.target.checked;
+    if (!pizzaIngredients.includes(ingredient) && ingredientIsChecked) {
+      dispatch(setIngredient(e.target.value));
+    }
+    if (!ingredientIsChecked) {
+      dispatch(removeIngredient(ingredient));
+    }
+  };
+
   return (
     <div className="w-full min-h-[85vh] mt-[15vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-start space-y-5 lg:space-y-0">
       <section className="w-full">
@@ -27,40 +46,82 @@ const BuildPizza = () => {
             <p>Selecciona los ingredientes:</p>
             <fieldset>
               <div>
-                <input type="checkbox" name="pizza-size" value="small" />
-                <label htmlFor="small">Jamon</label>
+                <input
+                  type="checkbox"
+                  name="pizza-ingredient"
+                  id="jamon"
+                  onClick={(e) => clickIngredient(e)}
+                  value="jamon"
+                />
+                <label htmlFor="jamon">Jamon</label>
               </div>
               <div>
-                <input type="checkbox" name="pizza-size" value="medium" />
-                <label htmlFor="small">Piña</label>
+                <input
+                  type="checkbox"
+                  name="pizza-ingredient"
+                  id="piña"
+                  onClick={(e) => clickIngredient(e)}
+                  value="piña"
+                />
+                <label htmlFor="piña">Piña</label>
               </div>
               <div>
-                <input type="checkbox" name="pizza-size" value="big" />
-                <label htmlFor="small">Pepperonni</label>
+                <input
+                  type="checkbox"
+                  name="pizza-ingredient"
+                  id="pepperonni"
+                  onClick={(e) => clickIngredient(e)}
+                  value="pepperonni"
+                />
+                <label htmlFor="pepperonni">Pepperonni</label>
               </div>
               <div>
-                <input type="checkbox" name="pizza-size" value="big" />
-                <label htmlFor="small">Salami</label>
+                <input
+                  type="checkbox"
+                  name="pizza-ingredient"
+                  id="salami"
+                  onClick={(e) => clickIngredient(e)}
+                  value="salami"
+                />
+                <label htmlFor="salami">Salami</label>
               </div>
               <div>
-                <input type="checkbox" name="pizza-size" value="big" />
-                <label htmlFor="small">Queso crema</label>
+                <input
+                  type="checkbox"
+                  name="pizza-ingredient"
+                  id="queso-crema"
+                  onClick={(e) => clickIngredient(e)}
+                  value="queso-crema"
+                />
+                <label htmlFor="queso-crema">Queso crema</label>
               </div>
               <div>
-                <input type="checkbox" name="pizza-size" value="big" />
-                <label htmlFor="small">Queso parmesano</label>
+                <input
+                  type="checkbox"
+                  name="pizza-ingredient"
+                  id="queso-parmesano"
+                  onClick={(e) => clickIngredient(e)}
+                  value="queso-parmesano"
+                />
+                <label htmlFor="queso-parmesano">Queso parmesano</label>
               </div>
               <div>
-                <input type="checkbox" name="pizza-size" value="big" />
-                <label htmlFor="small">Queso cheddar</label>
+                <input
+                  type="checkbox"
+                  name="pizza-ingredient"
+                  id="queso-cheddar"
+                  onClick={(e) => clickIngredient(e)}
+                  value="queso-cheddar"
+                />
+                <label htmlFor="queso-cheddar">Queso cheddar</label>
               </div>
-              <button type="submit" >Ordenar Pizza</button>
+              <button type="submit">Ordenar Pizza</button>
             </fieldset>
           </div>
         </form>
       </section>
       <section className="w-full bg-red-300">
-          <img src="" alt="fsdf" />
+        <img src="" alt="fsdf" />
       </section>
     </div>
   );
