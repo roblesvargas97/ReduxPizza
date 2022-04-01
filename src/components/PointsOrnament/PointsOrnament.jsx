@@ -1,7 +1,6 @@
 import React from "react";
 
 const PointsOrnament = ({ styles, fillColor }) => {
-  console.log(fillColor);
   return (
     <svg
       className={styles}

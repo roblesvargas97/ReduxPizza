@@ -25,13 +25,33 @@ const BuildPizza = () => {
     setStateSize(size);
   };
 
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    console.log(stateSize);
+    console.log(separateArrayByComma(pizzaIngredients));
+  };
+
+  const separateArrayByComma = (array) => {
+    const stringArray = array.join(", ");
+    const lastCommaFromArray = stringArray.lastIndexOf(", ");
+    if (lastCommaFromArray !== -1) {
+      return (
+        stringArray.substring(0, lastCommaFromArray) +
+        " y" +
+        stringArray.substring(lastCommaFromArray + 1)
+      );
+    } else {
+      return stringArray;
+    }
+  };
+
   return (
     <div className="w-full min-h-[85vh] mt-[15vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-start space-y-5 lg:space-y-0">
       <section className="w-full">
         <h2 className="text-4xl md:text-7xl font-bold text-center text-white">
           Arma tu pizza
         </h2>
-        <form action="">
+        <form onSubmit={(e) => onHandleSubmit(e)}>
           <div>
             <p>Seleccionar el tamaño de pizza:</p>
             <fieldset>
@@ -139,8 +159,8 @@ const BuildPizza = () => {
                 />
                 <label htmlFor="queso-cheddar">Queso cheddar</label>
               </div>
-              <button type="submit">Ordenar Pizza</button>
             </fieldset>
+            <button type="submit">Ordenar Pizza</button>
           </div>
         </form>
       </section>
