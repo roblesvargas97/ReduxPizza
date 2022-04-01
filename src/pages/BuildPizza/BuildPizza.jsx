@@ -3,11 +3,11 @@ import { FaSalesforce } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { setIngredient, removeIngredient } from "../../Slices/pizzaSlice";
 const BuildPizza = () => {
+  const [stateSize, setStateSize] = React.useState("grande");
+
   const dispatch = useDispatch();
 
   const pizzaIngredients = useSelector((state) => state.pizza.ingredientsPizza);
-
-  const fsdf = [];
 
   const clickIngredient = (e) => {
     const ingredient = e.target.value;
@@ -18,6 +18,11 @@ const BuildPizza = () => {
     if (!ingredientIsChecked) {
       dispatch(removeIngredient(ingredient));
     }
+  };
+
+  const onChangeSize = (e) => {
+    const size = e.target.value;
+    setStateSize(size);
   };
 
   return (
@@ -31,16 +36,35 @@ const BuildPizza = () => {
             <p>Seleccionar el tamaño de pizza:</p>
             <fieldset>
               <div>
-                <input type="radio" name="pizza-size" id="small" />
+                <input
+                  type="radio"
+                  name="pizza-size"
+                  id="small"
+                  value="chica"
+                  onChange={(e) => onChangeSize(e)}
+                />
                 <label htmlFor="small">Chica</label>
               </div>
               <div>
-                <input type="radio" name="pizza-size" id="medium" />
-                <label htmlFor="small">Mediana</label>
+                <input
+                  type="radio"
+                  name="pizza-size"
+                  id="medium"
+                  value="mediana"
+                  onChange={(e) => onChangeSize(e)}
+                />
+                <label htmlFor="medium">Mediana</label>
               </div>
               <div>
-                <input type="radio" name="pizza-size" id="big" />
-                <label htmlFor="small">Grande</label>
+                <input
+                  type="radio"
+                  name="pizza-size"
+                  id="big"
+                  value="grande"
+                  onChange={(e) => onChangeSize(e)}
+                  defaultChecked
+                />
+                <label htmlFor="big">Grande</label>
               </div>
             </fieldset>
             <p>Selecciona los ingredientes:</p>
