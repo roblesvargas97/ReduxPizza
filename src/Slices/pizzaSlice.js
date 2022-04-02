@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   ingredientsPizza: ['Queso Mozarella'],
+  pizzaShoppingCart: [],
 };
 
 export const pizzaSlice = createSlice({
@@ -16,6 +17,9 @@ export const pizzaSlice = createSlice({
         (element) => element !== action.payload
       );
     },
+    addPizzaToShoppingCart: (state,action) => {
+      state.pizzaShoppingCart.push(action.payload);
+    }
   },
 });
 

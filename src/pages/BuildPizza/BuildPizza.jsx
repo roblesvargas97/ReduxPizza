@@ -2,9 +2,12 @@ import React from "react";
 import { FaSalesforce } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { setIngredient, removeIngredient } from "../../Slices/pizzaSlice";
+import VisualizationPizza from "./VisualizationPizza/VisualizationPizza";
+import ArmasteTuPizza from "../../assets/images/ArmasteTuPizza.png";
 const BuildPizza = () => {
   const [stateSize, setStateSize] = React.useState("Grande");
   const [statePrice, setStatePrice] = React.useState(135);
+  const [stateQuantify, setStateQuantify] = React.useState(1);
 
   const dispatch = useDispatch();
 
@@ -113,7 +116,27 @@ const BuildPizza = () => {
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    console.log(statePrice);
+    const objectPizza = {
+      name: "Arma tu pizza",
+      img: ArmasteTuPizza,
+      ingredients: pizzaIngredients,
+      price: statePrice,
+      size: stateSize,
+      quantity: stateQuantify,
+    };
+    console.log(objectPizza);
+  };
+
+  const addQuantify = () => {
+    if (stateQuantify <= 4) {
+      setStateQuantify((prevVal) => prevVal + 1);
+    }
+  };
+
+  const sustractQuantify = () => {
+    if (stateQuantify >= 2) {
+      setStateQuantify((prevVal) => prevVal - 1);
+    }
   };
 
   const separateArrayByComma = (array) => {
@@ -245,12 +268,24 @@ const BuildPizza = () => {
                 <label htmlFor="queso-cheddar">Queso cheddar</label>
               </div>
             </fieldset>
+            <div>
+              <p>Cantidad</p>
+              <div>
+                <button type="button" onClick={addQuantify}>
+                  +
+                </button>
+                <span>{stateQuantify}</span>
+                <button type="button" onClick={sustractQuantify}>
+                  -
+                </button>
+              </div>
+            </div>
             <button type="submit">Ordenar Pizza</button>
           </div>
         </form>
       </section>
       <section className="w-full bg-red-300">
-        <img src="" alt="fsdf" />
+        <VisualizationPizza />
       </section>
     </div>
   );
