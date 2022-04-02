@@ -13,32 +13,32 @@ const VisualizationPizza = () => {
   const ingredientsPizza = useSelector((state) => state.pizza.ingredientsPizza);
 
   return (
-    <div className=" relative">
+    <div className=" relative hidden md:block">
       <img className=" -z-10" src={Masa} alt="masa pizza" />
       {ingredientsPizza.includes("Pepperonni") === true && (
-        <img className=" absolute top-0 left-0 z-10 " src={Pepperonni} alt="" />
+        <img className=" absolute w-[110] top-6 left-0 z-10 " src={Pepperonni} alt="" />
       )}
       {ingredientsPizza.includes("Salami") === true && (
-        <img className=" absolute top-0 left-0 z-10 " src={Salami} alt="" />
+        <img className=" absolute w-[110] top-6 left-0 z-10 " src={Salami} alt="" />
       )}
       {ingredientsPizza.includes("Queso Crema") === true && (
-        <img className=" absolute top-0 left-0 z-10 " src={QuesoCrema} alt="" />
+        <img className=" absolute w-[110] top-6 left-0 z-10 " src={QuesoCrema} alt="" />
       )}
       {ingredientsPizza.includes("Queso Parmesano") === true && (
         <img
-          className=" absolute top-0 left-0 z-10 "
+          className=" absolute w-[110] top-6 left-0 z-10 "
           src={QuesoParmesano}
           alt=""
         />
       )}
       {ingredientsPizza.includes("Queso Cheddar") === true && (
-        <img className=" absolute top-0 left-0 z-10 " src={Cheddar} alt="" />
+        <img className=" absolute w-[110] top-6 left-0 z-10 " src={Cheddar} alt="" />
       )}
       {ingredientsPizza.includes("Jamon") === true && (
-        <img className=" absolute top-0 left-0 z-10 " src={Jamon} alt="" />
+        <img className=" absolute w-[110] top-6 left-0 z-10 " src={Jamon} alt="" />
       )}
       {ingredientsPizza.includes("Piña") === true && (
-        <img className=" absolute top-0 left-0 z-10 " src={Piña} alt="" />
+        <img className=" absolute w-[110] top-6 left-0 z-10 " src={Piña} alt="" />
       )}
     </div>
   );
