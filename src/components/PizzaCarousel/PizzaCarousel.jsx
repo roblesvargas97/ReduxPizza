@@ -66,9 +66,9 @@ const PizzaCarousel = () => {
       img: imgCarnesFrias,
       ingredients: "Jamon, Salami, Salchicha y Queso.",
       prices: [
-        ["chica", 100],
-        ["mediana", 125],
-        ["grande", 165],
+        ["chica", 115],
+        ["mediana", 140],
+        ["grande", 280],
       ],
     },
     {
@@ -76,9 +76,9 @@ const PizzaCarousel = () => {
       img: imgPepperonni,
       ingredients: "Pepperonni y Queso.",
       prices: [
-        ["chica", 90],
-        ["mediana", 115],
-        ["grande", 155],
+        ["chica", 85],
+        ["mediana", 110],
+        ["grande", 150],
       ],
     },
     {
@@ -86,9 +86,9 @@ const PizzaCarousel = () => {
       img: img4Quesos,
       ingredients: "4 Quesos.",
       prices: [
-        ["chica", 100],
-        ["mediana", 125],
-        ["grande", 165],
+        ["chica", 85],
+        ["mediana", 110],
+        ["grande",150 ],
       ],
     },
     {

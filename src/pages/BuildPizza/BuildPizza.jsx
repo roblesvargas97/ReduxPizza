@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setIngredient, removeIngredient } from "../../Slices/pizzaSlice";
 const BuildPizza = () => {
   const [stateSize, setStateSize] = React.useState("Grande");
+  const [statePrice, setStatePrice] = React.useState(135);
 
   const dispatch = useDispatch();
 
@@ -15,19 +16,40 @@ const BuildPizza = () => {
     if (!pizzaIngredients.includes(ingredient) && ingredientIsChecked) {
       switch (e.target.value) {
         case "jamon":
-          return dispatch(setIngredient("Jamon"));
+          return (
+            dispatch(setIngredient("Jamon")),
+            setStatePrice((prevState) => prevState + 15)
+          );
         case "piña":
-          return dispatch(setIngredient("Piña"));
+          return (
+            dispatch(setIngredient("Piña")),
+            setStatePrice((prevState) => prevState + 15)
+          );
         case "pepperonni":
-          return dispatch(setIngredient("Pepperonni"));
+          return (
+            dispatch(setIngredient("Pepperonni")),
+            setStatePrice((prevState) => prevState + 15)
+          );
         case "salami":
-          return dispatch(setIngredient("Salami"));
+          return (
+            dispatch(setIngredient("Salami")),
+            setStatePrice((prevState) => prevState + 15)
+          );
         case "queso-crema":
-          return dispatch(setIngredient("Queso Crema"));
+          return (
+            dispatch(setIngredient("Queso Crema")),
+            setStatePrice((prevState) => prevState + 5)
+          );
         case "queso-parmesano":
-          return dispatch(setIngredient("Queso Parmesano"));
+          return (
+            dispatch(setIngredient("Queso Parmesano")),
+            setStatePrice((prevState) => prevState + 5)
+          );
         case "queso-cheddar":
-          return dispatch(setIngredient("Queso Cheddar"));
+          return (
+            dispatch(setIngredient("Queso Cheddar")),
+            setStatePrice((prevState) => prevState + 5)
+          );
         default:
           break;
       }
@@ -35,19 +57,40 @@ const BuildPizza = () => {
     if (!ingredientIsChecked) {
       switch (e.target.value) {
         case "jamon":
-          return dispatch(removeIngredient("Jamon"));
+          return (
+            dispatch(removeIngredient("Jamon")),
+            setStatePrice((prevState) => prevState - 15)
+          );
         case "piña":
-          return dispatch(removeIngredient("Piña"));
+          return (
+            dispatch(removeIngredient("Piña")),
+            setStatePrice((prevState) => prevState - 15)
+          );
         case "pepperonni":
-          return dispatch(removeIngredient("Pepperonni"));
+          return (
+            dispatch(removeIngredient("Pepperonni")),
+            setStatePrice((prevState) => prevState - 15)
+          );
         case "salami":
-          return dispatch(removeIngredient("Salami"));
+          return (
+            dispatch(removeIngredient("Salami")),
+            setStatePrice((prevState) => prevState - 15)
+          );
         case "queso-crema":
-          return dispatch(removeIngredient("Queso Crema"));
+          return (
+            dispatch(removeIngredient("Queso Crema")),
+            setStatePrice((prevState) => prevState - 5)
+          );
         case "queso-parmesano":
-          return dispatch(removeIngredient("Queso Parmesano"));
+          return (
+            dispatch(removeIngredient("Queso Parmesano")),
+            setStatePrice((prevState) => prevState - 5)
+          );
         case "queso-cheddar":
-          return dispatch(removeIngredient("Queso Cheddar"));
+          return (
+            dispatch(removeIngredient("Queso Cheddar")),
+            setStatePrice((prevState) => prevState - 5)
+          );
         default:
           break;
       }
@@ -58,11 +101,11 @@ const BuildPizza = () => {
     const size = e.target.value;
     switch (size) {
       case "grande":
-        return setStateSize("Grande");
+        return setStateSize("Grande"), setStatePrice(135);
       case "chica":
-        return setStateSize("Chica");
+        return setStateSize("Chica"), setStatePrice(70);
       case "mediana":
-        return setStateSize("Mediana");
+        return setStateSize("Mediana"), setStatePrice(95);
       default:
         break;
     }
@@ -70,8 +113,7 @@ const BuildPizza = () => {
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    console.log(stateSize);
-    console.log(separateArrayByComma(pizzaIngredients));
+    console.log(statePrice);
   };
 
   const separateArrayByComma = (array) => {
