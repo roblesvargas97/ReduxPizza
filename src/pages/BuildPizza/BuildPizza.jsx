@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setIngredient, removeIngredient } from "../../Slices/pizzaSlice";
 import VisualizationPizza from "./VisualizationPizza/VisualizationPizza";
 import ArmasteTuPizza from "../../assets/images/ArmasteTuPizza.png";
+import './styles.css';
 const BuildPizza = () => {
   const [stateSize, setStateSize] = React.useState("Grande");
   const [statePrice, setStatePrice] = React.useState(135);
