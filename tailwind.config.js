@@ -31,13 +31,17 @@ module.exports = {
             '50%,55%':{transform:'translate3d(0,-66.6%,0);'},
             '70%,75%':{transform:'translate3d(0,-33.3%,0);'},
             '100%':{transform:'translate3d(0,0,0);'},
-
+          },
+          rotateAndShow:{
+            'from':{transform:'rotate(50deg);',opacity:'0;'},
+            'to':{transform:'rotate(0)',opacity:'1;',},  
           }
         },
         animation: {
             bounceButton: 'bounceButton .3s cubic-bezier(0.215, 0.610, 0.355, 1)',
             rotateOrnament:'rotateOrnament infinite linear 10s',
-            wordsAnimation: 'wordsAnimation linear infinite 6s;'
+            wordsAnimation: 'wordsAnimation linear infinite 6s;',
+            rotateAndShow: 'rotateAndShow ease-in forwards .5s',
         }
       },
       fontFamily:{

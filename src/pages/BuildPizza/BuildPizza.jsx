@@ -355,7 +355,7 @@ const BuildPizza = () => {
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
                 disabled={stateQuantify >= 5}
-                className=" w-10 h-10 md:w-16 md:h-16 text-lg md:text-3xl lg:text-lg text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-white active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
+                className=" w-10 h-10 md:w-16 md:h-16 lg:w-10 lg:h-10 text-lg md:text-3xl lg:text-lg text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-white active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
                 type="button"
                 onClick={addQuantify}
               >
@@ -380,7 +380,7 @@ const BuildPizza = () => {
             <button
               data-mdb-ripple="true"
               data-mdb-ripple-color="info"
-              className=" px-3 py-2 w-auto h-10 md:h-16 rounded-lg bg-sky-200 text-xl md:text-4xl lg:text-xl font-bold text-dark-blue hover:scale-105 transition-all"
+              className=" px-3 py-2 w-auto h-10 md:h-16 lg:h-10 rounded-lg bg-sky-200 text-xl md:text-4xl lg:text-xl font-bold text-dark-blue hover:scale-105 transition-all"
               type="submit"
             >
               Ordenar Pizza
