@@ -180,43 +180,11 @@ const BuildPizza = () => {
             Selecciona el tamaño de pizza:
           </p>
           <fieldset className="px-5 flex w-full justify-between ">
-            <div>
+          <div className=" flex justify-center items-center" >
               <input
                 type="radio"
                 name="pizza-size"
-                className=" cursor-pointer"
-                id="small"
-                value="chica"
-                onChange={(e) => onChangeSize(e)}
-              />
-              <label
-                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
-                htmlFor="small"
-              >
-                Chica
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="pizza-size"
-                className=" cursor-pointer"
-                id="medium"
-                value="mediana"
-                onChange={(e) => onChangeSize(e)}
-              />
-              <label
-                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
-                htmlFor="medium"
-              >
-                Mediana
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="pizza-size"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="big"
                 value="grande"
                 onChange={(e) => onChangeSize(e)}
@@ -229,16 +197,49 @@ const BuildPizza = () => {
                 Grande
               </label>
             </div>
+            <div className=" flex justify-center items-center" >
+              <input
+                type="radio"
+                name="pizza-size"
+                className=" cursor-pointer mr-1"
+                id="medium"
+                value="mediana"
+                onChange={(e) => onChangeSize(e)}
+              />
+              <label
+                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="medium"
+              >
+                Mediana
+              </label>
+            </div>
+            <div className=" flex justify-center items-center" >
+              <input
+                type="radio"
+                name="pizza-size"
+                className=" cursor-pointer mr-1"
+                id="small"
+                value="chica"
+                onChange={(e) => onChangeSize(e)}
+              />
+              <label
+                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="small"
+              >
+                Chica
+              </label>
+            </div>
+            
           </fieldset>
           <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
             Selecciona los ingredientes:
           </p>
           <fieldset className="flex flex-wrap space-x-5 md:space-x-10 lg:space-x-5 justify-center">
-            <div>
+            <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
                 name="pizza-ingredient"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="jamon"
                 onClick={(e) => clickIngredient(e)}
                 value="jamon"
@@ -250,11 +251,11 @@ const BuildPizza = () => {
                 Jamon
               </label>
             </div>
-            <div>
+            <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
                 name="pizza-ingredient"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="piña"
                 onClick={(e) => clickIngredient(e)}
                 value="piña"
@@ -266,11 +267,11 @@ const BuildPizza = () => {
                 Piña
               </label>
             </div>
-            <div>
+            <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
                 name="pizza-ingredient"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="pepperonni"
                 onClick={(e) => clickIngredient(e)}
                 value="pepperonni"
@@ -282,11 +283,11 @@ const BuildPizza = () => {
                 Pepperonni
               </label>
             </div>
-            <div>
+            <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
                 name="pizza-ingredient"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="salami"
                 onClick={(e) => clickIngredient(e)}
                 value="salami"
@@ -298,11 +299,11 @@ const BuildPizza = () => {
                 Salami
               </label>
             </div>
-            <div>
+            <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
                 name="pizza-ingredient"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="queso-crema"
                 onClick={(e) => clickIngredient(e)}
                 value="queso-crema"
@@ -314,11 +315,11 @@ const BuildPizza = () => {
                 Queso crema
               </label>
             </div>
-            <div>
+            <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
                 name="pizza-ingredient"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="queso-parmesano"
                 onClick={(e) => clickIngredient(e)}
                 value="queso-parmesano"
@@ -330,11 +331,11 @@ const BuildPizza = () => {
                 Queso parmesano
               </label>
             </div>
-            <div>
+            <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
                 name="pizza-ingredient"
-                className=" cursor-pointer"
+                className=" cursor-pointer mr-1"
                 id="queso-cheddar"
                 onClick={(e) => clickIngredient(e)}
                 value="queso-cheddar"
@@ -356,7 +357,7 @@ const BuildPizza = () => {
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
                 disabled={stateQuantify >= 5}
-                className=" w-10 h-10 md:w-16 md:h-16 lg:w-10 lg:h-10 text-lg md:text-3xl lg:text-lg text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-white active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
+                className=" w-10 h-10 md:w-16 md:h-16 lg:w-10 lg:h-10 text-lg md:text-3xl lg:text-lg text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-sky-200  active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
                 type="button"
                 onClick={addQuantify}
               >
@@ -369,7 +370,7 @@ const BuildPizza = () => {
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
                 disabled={stateQuantify === 1}
-                className=" w-10 h-10 text-lg md:w-16 md:h-16 lg:w-10 lg:h-10 text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-white active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
+                className=" w-10 h-10 text-lg md:w-16 md:h-16 lg:w-10 lg:h-10 text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-sky-200    active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
                 type="button"
                 onClick={sustractQuantify}
               >
@@ -395,7 +396,7 @@ const BuildPizza = () => {
             <p className="text-xl md:text-4xl lg:text-xl font-bold text-white">
               Ingredientes:
             </p>
-            <p className="text-lg md:text-3xl lg:text-lg font-light text-white text-center ">
+            <p className="text-lg md:text-3xl lg:text-lg font-light text-sky-200 text-center ">
               {pizzaIngredients.length === 1
                 ? "Aqui mostraremos tus ingredientes"
                 : stateIngredientsFormat}
@@ -405,7 +406,7 @@ const BuildPizza = () => {
             <p className="text-xl md:text-4xl lg:text-xl font-bold text-white">
               Precio:
             </p>
-            <p className="text-lg md:text-3xl lg:text-lg font-light text-white ">
+            <p className="text-lg md:text-3xl lg:text-lg font-light text-sky-200 ">
               ${stateFinalPrice} MXN.
             </p>
           </div>
