@@ -1,10 +1,14 @@
 import React from "react";
 import { FaSalesforce } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
-import { setIngredient, removeIngredient } from "../../Slices/pizzaSlice";
+import {
+  setIngredient,
+  removeIngredient,
+  addPizzaToShoppingCart,
+} from "../../Slices/pizzaSlice";
 import VisualizationPizza from "./VisualizationPizza/VisualizationPizza";
 import ArmasteTuPizza from "../../assets/images/ArmasteTuPizza.png";
-import './styles.css';
+import "./styles.css";
 const BuildPizza = () => {
   const [stateSize, setStateSize] = React.useState("Grande");
   const [statePrice, setStatePrice] = React.useState(135);
@@ -12,8 +16,6 @@ const BuildPizza = () => {
   const [stateIngredientsFormat, setStateIngredientsFormat] =
     React.useState("");
   const [stateFinalPrice, setStateFinalPrice] = React.useState(0);
-
-  const [stateShowIngredients, setStateShowIngredients] = React.useState(false);
 
   const dispatch = useDispatch();
 
@@ -125,12 +127,13 @@ const BuildPizza = () => {
     const objectPizza = {
       name: "Arma tu pizza",
       img: ArmasteTuPizza,
+      id: Date.now(),
       ingredients: pizzaIngredients,
       price: stateFinalPrice,
       size: stateSize,
       quantity: stateQuantify,
     };
-    console.log(objectPizza);
+    dispatch(addPizzaToShoppingCart(objectPizza));
   };
 
   const addQuantify = () => {
@@ -180,7 +183,7 @@ const BuildPizza = () => {
             Selecciona el tamaño de pizza:
           </p>
           <fieldset className="px-5 flex w-full justify-between ">
-          <div className=" flex justify-center items-center" >
+            <div className=" flex justify-center items-center">
               <input
                 type="radio"
                 name="pizza-size"
@@ -197,7 +200,7 @@ const BuildPizza = () => {
                 Grande
               </label>
             </div>
-            <div className=" flex justify-center items-center" >
+            <div className=" flex justify-center items-center">
               <input
                 type="radio"
                 name="pizza-size"
@@ -213,7 +216,7 @@ const BuildPizza = () => {
                 Mediana
               </label>
             </div>
-            <div className=" flex justify-center items-center" >
+            <div className=" flex justify-center items-center">
               <input
                 type="radio"
                 name="pizza-size"
@@ -229,7 +232,6 @@ const BuildPizza = () => {
                 Chica
               </label>
             </div>
-            
           </fieldset>
           <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
             Selecciona los ingredientes:

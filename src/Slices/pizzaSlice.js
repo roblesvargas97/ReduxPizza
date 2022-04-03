@@ -23,6 +23,6 @@ export const pizzaSlice = createSlice({
   },
 });
 
-export const { setIngredient, removeIngredient } = pizzaSlice.actions;
+export const { setIngredient, removeIngredient , addPizzaToShoppingCart } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
