@@ -8,6 +8,11 @@ const BuildPizza = () => {
   const [stateSize, setStateSize] = React.useState("Grande");
   const [statePrice, setStatePrice] = React.useState(135);
   const [stateQuantify, setStateQuantify] = React.useState(1);
+  const [stateIngredientsFormat, setStateIngredientsFormat] =
+    React.useState("");
+  const [stateFinalPrice, setStateFinalPrice] = React.useState(0);
+
+  const [stateShowIngredients, setStateShowIngredients] = React.useState(false);
 
   const dispatch = useDispatch();
 
@@ -120,7 +125,7 @@ const BuildPizza = () => {
       name: "Arma tu pizza",
       img: ArmasteTuPizza,
       ingredients: pizzaIngredients,
-      price: statePrice,
+      price: stateFinalPrice,
       size: stateSize,
       quantity: stateQuantify,
     };
@@ -128,15 +133,11 @@ const BuildPizza = () => {
   };
 
   const addQuantify = () => {
-    if (stateQuantify <= 4) {
-      setStateQuantify((prevVal) => prevVal + 1);
-    }
+    setStateQuantify((prevVal) => prevVal + 1);
   };
 
   const sustractQuantify = () => {
-    if (stateQuantify >= 2) {
-      setStateQuantify((prevVal) => prevVal - 1);
-    }
+    setStateQuantify((prevVal) => prevVal - 1);
   };
 
   const separateArrayByComma = (array) => {
@@ -146,154 +147,271 @@ const BuildPizza = () => {
       return (
         stringArray.substring(0, lastCommaFromArray) +
         " y" +
-        stringArray.substring(lastCommaFromArray + 1)
+        stringArray.substring(lastCommaFromArray + 1) +
+        "."
       );
     } else {
       return stringArray;
     }
   };
 
+  React.useEffect(
+    () => setStateIngredientsFormat(separateArrayByComma(pizzaIngredients)),
+    [pizzaIngredients]
+  );
+
+  React.useEffect(() => {
+    let actualPrice = statePrice;
+    setStateFinalPrice(stateQuantify * actualPrice);
+  }, [stateQuantify, stateSize, pizzaIngredients]);
+
   return (
-    <div className="w-full min-h-[85vh] mt-[15vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-start space-y-5 lg:space-y-0">
-      <section className="w-full min-w-[320px] ">
+    <div className="w-full min-h-[85vh] mt-[15vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0">
+      <section className="w-full lg:w-[50%] lg:min-h-[75vh] min-w-[320px] flex flex-col justify-center items-center ">
         <h2 className="text-4xl md:text-7xl lg:text-6xl font-bold text-center text-white">
           Arma tu pizza
         </h2>
-        <form onSubmit={(e) => onHandleSubmit(e)}>
-          <div className=" space-y-5" >
-            <p className="text-2xl md:text-5xl lg:text-2xl font-bold text-white text-center ">
-              Selecciona el tamaño de pizza:
-            </p>
-            <fieldset className="px-5 flex w-full justify-between " >
-              <div>
-                <input
-                  type="radio"
-                  name="pizza-size"
-                  id="small"
-                  value="chica"
-                  onChange={(e) => onChangeSize(e)}
-                />
-                <label className="text-xl md:text-3xl lg:text-xl text-white" htmlFor="small">Chica</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="pizza-size"
-                  id="medium"
-                  value="mediana"
-                  onChange={(e) => onChangeSize(e)}
-                />
-                <label className="text-xl md:text-3xl lg:text-xl text-white" htmlFor="medium">Mediana</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="pizza-size"
-                  id="big"
-                  value="grande"
-                  onChange={(e) => onChangeSize(e)}
-                  defaultChecked
-                />
-                <label className="text-xl md:text-3xl lg:text-xl text-white" htmlFor="big">Grande</label>
-              </div>
-            </fieldset>
-            <p className="text-2xl md:text-5xl lg:text-2xl font-bold text-white text-center ">
-              Selecciona los ingredientes:
-            </p>
-            <fieldset className="px-10 grid grid-cols-2">
-              <div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="pizza-ingredient"
-                    id="jamon"
-                    onClick={(e) => clickIngredient(e)}
-                    value="jamon"
-                  />
-                  <label className="text-xl md:text-3xl lg:text-xl text-sky-200" htmlFor="jamon">Jamon</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="pizza-ingredient"
-                    id="piña"
-                    onClick={(e) => clickIngredient(e)}
-                    value="piña"
-                  />
-                  <label className="text-xl md:text-3xl lg:text-xl text-sky-200" htmlFor="piña">Piña</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="pizza-ingredient"
-                    id="pepperonni"
-                    onClick={(e) => clickIngredient(e)}
-                    value="pepperonni"
-                  />
-                  <label className="text-xl md:text-3xl lg:text-xl text-sky-200" htmlFor="pepperonni">Pepperonni</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="pizza-ingredient"
-                    id="salami"
-                    onClick={(e) => clickIngredient(e)}
-                    value="salami"
-                  />
-                  <label className="text-xl md:text-3xl lg:text-xl text-sky-200" htmlFor="salami">Salami</label>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="pizza-ingredient"
-                    id="queso-crema"
-                    onClick={(e) => clickIngredient(e)}
-                    value="queso-crema"
-                  />
-                  <label className="text-xl md:text-3xl lg:text-xl text-sky-200" htmlFor="queso-crema">Queso crema</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="pizza-ingredient"
-                    id="queso-parmesano"
-                    onClick={(e) => clickIngredient(e)}
-                    value="queso-parmesano"
-                  />
-                  <label className="text-xl md:text-3xl lg:text-xl text-sky-200" htmlFor="queso-parmesano">Queso parmesano</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="pizza-ingredient"
-                    id="queso-cheddar"
-                    onClick={(e) => clickIngredient(e)}
-                    value="queso-cheddar"
-                  />
-                  <label className="text-xl md:text-3xl lg:text-xl text-sky-200" htmlFor="queso-cheddar">Queso cheddar</label>
-                </div>
-              </div>
-            </fieldset>
+        <form
+          className=" mt-3 space-y-3 md:space-y-5 lg:space-y-3 flex flex-col items-center border-2 border-transparent bg-white-glass p-3 hover:border-blue transition-all duration-300 rounded-lg"
+          onSubmit={(e) => onHandleSubmit(e)}
+        >
+          <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
+            Selecciona el tamaño de pizza:
+          </p>
+          <fieldset className="px-5 flex w-full justify-between ">
             <div>
-              <p className="text-2xl md:text-5xl lg:text-2xl font-bold text-white text-center" >Cantidad</p>
-              <div>
-                <button type="button" onClick={addQuantify}>
-                  +
-                </button>
-                <span>{stateQuantify}</span>
-                <button type="button" onClick={sustractQuantify}>
-                  -
-                </button>
-              </div>
+              <input
+                type="radio"
+                name="pizza-size"
+                className=" cursor-pointer"
+                id="small"
+                value="chica"
+                onChange={(e) => onChangeSize(e)}
+              />
+              <label
+                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="small"
+              >
+                Chica
+              </label>
             </div>
-            <button type="submit">Ordenar Pizza</button>
+            <div>
+              <input
+                type="radio"
+                name="pizza-size"
+                className=" cursor-pointer"
+                id="medium"
+                value="mediana"
+                onChange={(e) => onChangeSize(e)}
+              />
+              <label
+                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="medium"
+              >
+                Mediana
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="pizza-size"
+                className=" cursor-pointer"
+                id="big"
+                value="grande"
+                onChange={(e) => onChangeSize(e)}
+                defaultChecked
+              />
+              <label
+                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="big"
+              >
+                Grande
+              </label>
+            </div>
+          </fieldset>
+          <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
+            Selecciona los ingredientes:
+          </p>
+          <fieldset className="flex flex-wrap space-x-5 md:space-x-10 lg:space-x-5 justify-center">
+            <div>
+              <input
+                type="checkbox"
+                name="pizza-ingredient"
+                className=" cursor-pointer"
+                id="jamon"
+                onClick={(e) => clickIngredient(e)}
+                value="jamon"
+              />
+              <label
+                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="jamon"
+              >
+                Jamon
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="pizza-ingredient"
+                className=" cursor-pointer"
+                id="piña"
+                onClick={(e) => clickIngredient(e)}
+                value="piña"
+              />
+              <label
+                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="piña"
+              >
+                Piña
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="pizza-ingredient"
+                className=" cursor-pointer"
+                id="pepperonni"
+                onClick={(e) => clickIngredient(e)}
+                value="pepperonni"
+              />
+              <label
+                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="pepperonni"
+              >
+                Pepperonni
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="pizza-ingredient"
+                className=" cursor-pointer"
+                id="salami"
+                onClick={(e) => clickIngredient(e)}
+                value="salami"
+              />
+              <label
+                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="salami"
+              >
+                Salami
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="pizza-ingredient"
+                className=" cursor-pointer"
+                id="queso-crema"
+                onClick={(e) => clickIngredient(e)}
+                value="queso-crema"
+              />
+              <label
+                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="queso-crema"
+              >
+                Queso crema
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="pizza-ingredient"
+                className=" cursor-pointer"
+                id="queso-parmesano"
+                onClick={(e) => clickIngredient(e)}
+                value="queso-parmesano"
+              />
+              <label
+                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="queso-parmesano"
+              >
+                Queso parmesano
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="pizza-ingredient"
+                className=" cursor-pointer"
+                id="queso-cheddar"
+                onClick={(e) => clickIngredient(e)}
+                value="queso-cheddar"
+              />
+              <label
+                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                htmlFor="queso-cheddar"
+              >
+                Queso cheddar
+              </label>
+            </div>
+          </fieldset>
+          <div className=" space-y-3 lg:space-y-1">
+            <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center">
+              Cantidad
+            </p>
+            <div className=" flex justify-center items-center">
+              <button
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+                disabled={stateQuantify >= 5}
+                className=" w-10 h-10 md:w-16 md:h-16 text-lg md:text-3xl lg:text-lg text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-white active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
+                type="button"
+                onClick={addQuantify}
+              >
+                +
+              </button>
+              <span className=" w-10 h-10 md:w-16 md:h-16 lg:w-10 lg:h-10 text-lg md:text-3xl lg:text-lg rounded-lg flex flex-col justify-center items-center text-white border-2 border-sky-200">
+                {stateQuantify}
+              </span>
+              <button
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+                disabled={stateQuantify === 1}
+                className=" w-10 h-10 text-lg md:w-16 md:h-16 lg:w-10 lg:h-10 text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-white active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
+                type="button"
+                onClick={sustractQuantify}
+              >
+                -
+              </button>
+            </div>
+          </div>
+          <div className="">
+            <button
+              data-mdb-ripple="true"
+              data-mdb-ripple-color="info"
+              className=" px-3 py-2 w-auto h-10 md:h-16 rounded-lg bg-sky-200 text-xl md:text-4xl lg:text-xl font-bold text-dark-blue hover:scale-105 transition-all"
+              type="submit"
+            >
+              Ordenar Pizza
+            </button>
           </div>
         </form>
       </section>
-      <section className="w-full">
-        <VisualizationPizza />
+      <section className="w-full lg:w-[50%] lg:min-h-[75vh] flex flex-col justify-center items-center ">
+        <div className="w-full flex flex-col justify-center items-center space-y-3 md:space-y-5 lg:space-y-3">
+          <div className=" flex lg:hidden w-full flex-col justify-center items-center">
+            <p className="text-xl md:text-4xl lg:text-xl font-bold text-white">
+              Ingredientes:
+            </p>
+            <p className="text-lg md:text-3xl lg:text-lg font-light text-white text-center ">
+              {pizzaIngredients.length === 1
+                ? "Aqui mostraremos tus ingredientes"
+                : stateIngredientsFormat}
+            </p>
+          </div>
+          <div className=" flex flex-col items-center justify-center ">
+            <p className="text-xl md:text-4xl lg:text-xl font-bold text-white">
+              Precio:
+            </p>
+            <p className="text-lg md:text-3xl lg:text-lg font-light text-white ">
+              ${stateFinalPrice} MXN.
+            </p>
+          </div>
+        </div>
+        <div className=" w-full flex justify-center">
+          <VisualizationPizza />
+        </div>
       </section>
     </div>
   );
