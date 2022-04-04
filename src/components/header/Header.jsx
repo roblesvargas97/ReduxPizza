@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon, FaShoppingCart } from "react-icons/fa";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowShoppingCart } from "../../Slices/uiSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const ShowCart = useSelector((state) => state.ui.showShoppingCart);
   return (
     <header className=" fixed top-0 left-0 z-50 w-full h-[15vh]  bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 backdrop-blur-sm border-b-2 border-blue-500 hidden md:flex items-center justify-between lg:px-10 md:px-5 ">
       <img
@@ -12,7 +17,7 @@ const Header = () => {
       />
       <nav className="flex justify-between space-x-5 bg-white-glass backdrop-blur-sm text-white text-xl font-bold py-2 px-10  rounded-lg border-2 border-transparent hover:border-blue transition-all duration-300">
         <Link
-          to="#"
+          to="/"
           className="first-letter:text-blue py-1 px-2 rounded-lg border-2 border-transparent transition-all duration-300  ease-in hover:border-blue hover:text-white hover:first-letter:text-dark-blue hover:bg-cyan-500 hover:animate-bounceButton"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
@@ -36,6 +41,15 @@ const Header = () => {
           Arma tu pizza
         </Link>
       </nav>
+      <div className=" relative" >
+        <button
+          onClick={() => dispatch(setShowShoppingCart(!ShowCart))}
+          className=" h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2 border-transparent hover:border-blue rounded-lg bg-white-glass backdrop-blur-lg text-white"
+        >
+          <FaShoppingCart />
+        </button>
+        {ShowCart && <ShoppingCart/>}
+      </div>
       <button className="l w-14 h-7 p-1 flex items-center border-2 rounded-lg bg-white-glass backdrop-blur-sm border-blue justify-between relative cursor-pointer transition-all duration-300 ease-in-out shadow-2xl ">
         <FaSun className=" text-white" />
         <FaMoon className=" text-white" />

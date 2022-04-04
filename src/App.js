@@ -5,6 +5,7 @@ import HeaderMobile from "./components/HeaderMobile/HeaderMobile";
 import MenuMobile from "./components/MenuMobile/MenuMobile";
 import BuildPizza from "./pages/BuildPizza/BuildPizza";
 import Home from "./pages/Home/Home";
+import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 
 function App() {
   return (

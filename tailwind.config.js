@@ -35,13 +35,18 @@ module.exports = {
           rotateAndShow:{
             'from':{transform:'rotate(50deg);',opacity:'0;'},
             'to':{transform:'rotate(0)',opacity:'1;',},  
-          }
+          },
+          rotateAndShow2:{
+            'from':{ transform:'translateY(-10px)', opacity:'0;'},
+            'to':{ transform:'translateY(0)', opacity:'1;',},  
+          },
         },
         animation: {
             bounceButton: 'bounceButton .3s cubic-bezier(0.215, 0.610, 0.355, 1)',
             rotateOrnament:'rotateOrnament infinite linear 10s',
             wordsAnimation: 'wordsAnimation linear infinite 6s;',
             rotateAndShow: 'rotateAndShow ease-in forwards .5s',
+            rotateAndShow2: 'rotateAndShow2 ease-in forwards .5s',
         }
       },
       fontFamily:{
