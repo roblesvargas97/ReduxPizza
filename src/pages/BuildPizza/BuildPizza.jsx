@@ -1,10 +1,10 @@
 import React from "react";
-import { FaSalesforce } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setIngredient,
   removeIngredient,
   addPizzaToShoppingCart,
+  emptyIngredientsPizza,
 } from "../../Slices/pizzaSlice";
 import VisualizationPizza from "./VisualizationPizza/VisualizationPizza";
 import ArmasteTuPizza from "../../assets/images/ArmasteTuPizza.png";
@@ -134,6 +134,12 @@ const BuildPizza = () => {
       quantity: stateQuantify,
     };
     dispatch(addPizzaToShoppingCart(objectPizza));
+    e.target.reset();
+    setStateSize("Grande");
+    setStatePrice(135);
+    setStateQuantify(1);
+    setStateFinalPrice(0);
+    dispatch(emptyIngredientsPizza());
   };
 
   const addQuantify = () => {
@@ -168,6 +174,14 @@ const BuildPizza = () => {
     let actualPrice = statePrice;
     setStateFinalPrice(stateQuantify * actualPrice);
   }, [stateQuantify, stateSize, pizzaIngredients]);
+
+  React.useEffect(()=> {
+    setStateSize("Grande");
+    setStatePrice(135);
+    setStateQuantify(1);
+    setStateFinalPrice(0);
+    dispatch(emptyIngredientsPizza());
+  },[])
 
   return (
     <div className="w-full min-h-[85vh] mt-[15vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0">

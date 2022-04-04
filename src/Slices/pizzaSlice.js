@@ -19,10 +19,13 @@ export const pizzaSlice = createSlice({
     },
     addPizzaToShoppingCart: (state,action) => {
       state.pizzaShoppingCart.push(action.payload);
+    },
+    emptyIngredientsPizza: (state,action)=>{
+      state.ingredientsPizza = [];
     }
   },
 });
 
-export const { setIngredient, removeIngredient , addPizzaToShoppingCart } = pizzaSlice.actions;
+export const { setIngredient, removeIngredient , addPizzaToShoppingCart , emptyIngredientsPizza } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
