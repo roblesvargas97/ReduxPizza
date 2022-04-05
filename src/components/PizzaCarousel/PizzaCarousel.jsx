@@ -8,18 +8,17 @@ import img4Quesos from "../../assets/images/quesos-pizza.png";
 import imgPepperonni from "../../assets/images/pepperonni-pizza.png";
 import img4QuesosPepperonni from "../../assets/images/pepperonni-quesos-pizza.png";
 import PizzaCarouselItem from "./PizzaCarouselItem/PizzaCarouselItem";
-import { FaAngleLeft , FaAngleRight } from "react-icons/fa"; 
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const PizzaCarousel = () => {
-
-  const [sliderRef, setSliderRef] = React.useState(null)
+  const [sliderRef, setSliderRef] = React.useState(null);
 
   var settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
-    slidesToScroll:2,
+    slidesToScroll: 2,
     initialSlide: 0,
     autoplay: true,
     responsive: [
@@ -54,64 +53,86 @@ const PizzaCarousel = () => {
     {
       name: "Hawaiana",
       img: imgHawaiana,
-      ingredients: " Piña, Jamon y Queso.",
+      ingredients: ["Piña", "Jamon", "Queso"],
+      id: 1,
       prices: [
-        ["chica", 100],
-        ["mediana", 125],
-        ["grande", 165],
+        ["Chica", 100],
+        ["Mediana", 125],
+        ["Grande", 165],
       ],
     },
     {
       name: "Carnes Frias",
       img: imgCarnesFrias,
-      ingredients: "Jamon, Salami, Salchicha y Queso.",
+      ingredients: ["Jamon", "Salami", "Salchicha", "Queso"],
+      id: 2,
       prices: [
-        ["chica", 115],
-        ["mediana", 140],
-        ["grande", 280],
+        ["Chica", 115],
+        ["Mediana", 140],
+        ["Grande", 280],
       ],
     },
     {
       name: "Pepperonni",
       img: imgPepperonni,
-      ingredients: "Pepperonni y Queso.",
+      ingredients: ["Pepperonni", "Queso"],
+      id: 3,
       prices: [
-        ["chica", 85],
-        ["mediana", 110],
-        ["grande", 150],
+        ["Chica", 85],
+        ["Mediana", 110],
+        ["Grande", 150],
       ],
     },
     {
       name: "4 Quesos",
       img: img4Quesos,
-      ingredients: "4 Quesos.",
+      ingredients: [
+        "Queso",
+        "Queso Mozzarella",
+        "Queso Parmessano",
+        "Queso Cheddar",
+      ],
+      id: 4,
       prices: [
-        ["chica", 85],
-        ["mediana", 110],
-        ["grande",150 ],
+        ["Chica", 85],
+        ["Mediana", 110],
+        ["Grande", 150],
       ],
     },
     {
       name: "Mitad y Mitad",
       img: img4QuesosPepperonni,
-      ingredients: "Pepperonni y 4 Quesos.",
+      ingredients: [
+        "Queso",
+        "Queso Mozzarella",
+        "Queso Parmessano",
+        "Queso Cheddar",
+        "Pepperonni",
+      ],
+      id: 5,
       prices: [
-        ["chica", 100],
-        ["mediana", 125],
-        ["grande", 165],
+        ["Chica", 100],
+        ["Mediana", 125],
+        ["Grande", 165],
       ],
     },
   ];
 
   return (
-    <div className=" w-full lg:w-[60%] relative" >
-      <button className=" flex items-center justify-center text-4xl text-sky-200 absolute top-[50%] left-[-20px] z-10 h-9 w-9 rounded-lg bg-transparent border-2 border-transparent hover:bg-dark-blue-1 hover:border-white transition-all duration-300 active:scale-75  " onClick={sliderRef?.slickPrev}>
-          <FaAngleLeft/>
-        </button>
-        <button className=" flex items-center justify-center text-4xl text-sky-200 absolute top-[50%] right-[-20px] z-10 h-9 w-9 rounded-lg bg-transparent border-2 border-transparent hover:bg-dark-blue-1 hover:border-white transition-all duration-300 active:scale-75 " onClick={sliderRef?.slickNext}>
-          <FaAngleRight/>
-        </button>
-      <Slider  ref={setSliderRef} {...settings}>
+    <div className=" w-full lg:w-[60%] relative">
+      <button
+        className=" flex items-center justify-center text-4xl text-sky-200 absolute top-[50%] left-[-20px] z-10 h-9 w-9 rounded-lg bg-transparent border-2 border-transparent hover:bg-dark-blue-1 hover:border-white transition-all duration-300 active:scale-75  "
+        onClick={sliderRef?.slickPrev}
+      >
+        <FaAngleLeft />
+      </button>
+      <button
+        className=" flex items-center justify-center text-4xl text-sky-200 absolute top-[50%] right-[-20px] z-10 h-9 w-9 rounded-lg bg-transparent border-2 border-transparent hover:bg-dark-blue-1 hover:border-white transition-all duration-300 active:scale-75 "
+        onClick={sliderRef?.slickNext}
+      >
+        <FaAngleRight />
+      </button>
+      <Slider ref={setSliderRef} {...settings}>
         {pizzasMenu.map((element, index) => (
           <PizzaCarouselItem key={index} infoPizza={element} />
         ))}
