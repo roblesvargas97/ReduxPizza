@@ -1,15 +1,18 @@
 import { FaCartPlus } from "react-icons/fa";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPizzaToShoppingCart } from "../../../Slices/pizzaSlice";
 
 const PizzaCarouselItem = ({ infoPizza }) => {
   const [statePizzaSize, setStatePizzaSize] = React.useState("");
   const [statePizzaPrice, setStatePizzaPrice] = React.useState("");
   const [statePizzaId, setStatePizzaId] = React.useState("");
-  const { img, id, name, prices, ingredients } = infoPizza;
+  const { img, name, id, prices, ingredients } = infoPizza;
 
   const dispatch = useDispatch();
+  const shoppingCartState = useSelector(
+    (state) => state.pizza.pizzaShoppingCart
+  );
 
   const handleOnChange = (e) => {
     const pizzaSelect = e.target.options[e.target.selectedIndex];
@@ -22,6 +25,14 @@ const PizzaCarouselItem = ({ infoPizza }) => {
   };
 
   const addPizzaToShoppingCartHandle = () => {
+    const pizzaDoesNotExistInShoppingCart =
+      shoppingCartState.filter((element) => element.id === statePizzaId)
+        .length === 0;
+
+    const pizzaAlreadyExistInShoppingCart =
+      shoppingCartState.filter((element) => element.id === statePizzaId)
+        .length > 0;
+
     const objectPizza = {
       name: name,
       img: img,
@@ -33,10 +44,13 @@ const PizzaCarouselItem = ({ infoPizza }) => {
     };
 
     if (
-      setStatePizzaSize !== "" &&
-      statePizzaPrice !== "" &&
-      statePizzaId !== ""
+      setStatePizzaSize === "" ||
+      statePizzaPrice === "" ||
+      statePizzaId === ""
     ) {
+      return;
+    }
+    if (pizzaDoesNotExistInShoppingCart) {
       dispatch(addPizzaToShoppingCart(objectPizza));
     }
   };
@@ -88,7 +102,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
               <option
                 value={element[1]}
                 data-size={element[0]}
-                data-id={id}
+                data-id={element[2]}
                 key={index}
                 className=" text-center text-base font-light"
               >{`${element[0]} $${element[1]}MXN`}</option>

@@ -56,9 +56,9 @@ const PizzaCarousel = () => {
       ingredients: ["Piña", "Jamon", "Queso"],
       id: 1,
       prices: [
-        ["Chica", 100],
-        ["Mediana", 125],
-        ["Grande", 165],
+        ["Chica", 100 , 1],
+        ["Mediana", 125 , 2],
+        ["Grande", 165,3],
       ],
     },
     {
@@ -67,9 +67,9 @@ const PizzaCarousel = () => {
       ingredients: ["Jamon", "Salami", "Salchicha", "Queso"],
       id: 2,
       prices: [
-        ["Chica", 115],
-        ["Mediana", 140],
-        ["Grande", 280],
+        ["Chica", 115,4],
+        ["Mediana", 140,5],
+        ["Grande", 280,6],
       ],
     },
     {
@@ -78,9 +78,9 @@ const PizzaCarousel = () => {
       ingredients: ["Pepperonni", "Queso"],
       id: 3,
       prices: [
-        ["Chica", 85],
-        ["Mediana", 110],
-        ["Grande", 150],
+        ["Chica", 85,7],
+        ["Mediana", 110,8],
+        ["Grande", 150,9],
       ],
     },
     {
@@ -94,9 +94,9 @@ const PizzaCarousel = () => {
       ],
       id: 4,
       prices: [
-        ["Chica", 85],
-        ["Mediana", 110],
-        ["Grande", 150],
+        ["Chica", 85 , 10],
+        ["Mediana", 110,11],
+        ["Grande", 150,12],
       ],
     },
     {
@@ -111,9 +111,9 @@ const PizzaCarousel = () => {
       ],
       id: 5,
       prices: [
-        ["Chica", 100],
-        ["Mediana", 125],
-        ["Grande", 165],
+        ["Chica", 100,13],
+        ["Mediana", 125,14],
+        ["Grande", 165,15],
       ],
     },
   ];
