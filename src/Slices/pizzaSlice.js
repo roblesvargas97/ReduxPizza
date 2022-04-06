@@ -1,5 +1,4 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import ShoppingCartItem from "../components/ShoppingCart/ShoppingCartItem/ShoppingCartItem";
 
 const initialState = {
   ingredientsPizza: ["Queso Mozarella"],
