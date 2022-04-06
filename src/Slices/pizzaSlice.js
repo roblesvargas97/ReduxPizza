@@ -42,6 +42,25 @@ export const pizzaSlice = createSlice({
         }
       }
     },
+    decreaseQuantityShoppinCart: (state, action) => {
+      const itemCartExist =
+        state.pizzaShoppingCart.filter(
+          (element) => element.id === action.payload
+        ).length !== 0;
+
+      const itemPosition = state.pizzaShoppingCart.findIndex(
+        (element) => element.id === action.payload
+      );
+
+      if (itemCartExist) {
+        const quantityItem = state.pizzaShoppingCart[itemPosition].quantity;
+
+        if (quantityItem >= 1) {
+          state.pizzaShoppingCart[itemPosition].quantity--;
+          // console.log(current(state.pizzaShoppingCart));
+        }
+      }
+    },
   },
 });
 
@@ -51,6 +70,7 @@ export const {
   addPizzaToShoppingCart,
   emptyIngredientsPizza,
   increaseQuantityShoppinCart,
+  decreaseQuantityShoppinCart,
 } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
