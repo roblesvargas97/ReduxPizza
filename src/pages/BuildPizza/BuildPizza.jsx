@@ -129,7 +129,8 @@ const BuildPizza = () => {
       img: ArmasteTuPizza,
       id: Date.now(),
       ingredients: pizzaIngredients,
-      price: stateFinalPrice,
+      price: statePrice,
+      finalPrice: stateFinalPrice ,
       size: stateSize,
       quantity: stateQuantify,
     };
