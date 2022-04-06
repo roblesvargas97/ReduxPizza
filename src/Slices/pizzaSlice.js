@@ -1,7 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
+import ShoppingCartItem from "../components/ShoppingCart/ShoppingCartItem/ShoppingCartItem";
 
 const initialState = {
-  ingredientsPizza: ['Queso Mozarella'],
+  ingredientsPizza: ["Queso Mozarella"],
   pizzaShoppingCart: [],
 };
 
@@ -17,15 +18,40 @@ export const pizzaSlice = createSlice({
         (element) => element !== action.payload
       );
     },
-    addPizzaToShoppingCart: (state,action) => {
+    addPizzaToShoppingCart: (state, action) => {
       state.pizzaShoppingCart.push(action.payload);
     },
-    emptyIngredientsPizza: (state,action)=>{
+    emptyIngredientsPizza: (state, action) => {
       state.ingredientsPizza = [];
-    }
+    },
+    increaseQuantityShoppinCart: (state, action) => {
+      const itemCartExist =
+        state.pizzaShoppingCart.filter(
+          (element) => element.id === action.payload.id
+        ).length !== 0;
+
+      const itemPosition = state.pizzaShoppingCart.findIndex(
+        (element) => element.id === action.payload.id
+      );
+
+      if (itemCartExist) {
+        const quantityItem = state.pizzaShoppingCart[itemPosition].quantity;
+
+        if (quantityItem <= 4) {
+          state.pizzaShoppingCart[itemPosition].quantity++;
+          // console.log(current(state.pizzaShoppingCart));
+        }
+      }
+    },
   },
 });
 
-export const { setIngredient, removeIngredient , addPizzaToShoppingCart , emptyIngredientsPizza } = pizzaSlice.actions;
+export const {
+  setIngredient,
+  removeIngredient,
+  addPizzaToShoppingCart,
+  emptyIngredientsPizza,
+  increaseQuantityShoppinCart,
+} = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
