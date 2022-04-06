@@ -1,7 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  increaseQuantityShoppinCart,
+  decreaseQuantityShoppinCart,
+} from "../../../Slices/pizzaSlice";
 import "../styles.css";
 
 const ShoppingCartItem = ({ info }) => {
+  const dispatch = useDispatch();
+
   console.log(info);
 
   const separateArrayByComma = (array) => {
@@ -19,6 +26,14 @@ const ShoppingCartItem = ({ info }) => {
     }
   };
   const formatIngredients = separateArrayByComma(info.ingredients);
+
+  const onAddClick = () => {
+    dispatch(increaseQuantityShoppinCart(info.id));
+  };
+
+  const onSustractionClick = () => {
+    dispatch(decreaseQuantityShoppinCart(info.id));
+  };
 
   return (
     <article className="w-full h-28 flex items-center justify-center border-2 border-white overflow-hidden rounded-lg bg-dark-blue text-dark-blue shadow shadow-white/50 ">
@@ -47,10 +62,24 @@ const ShoppingCartItem = ({ info }) => {
             Precio: <span className=" font-light">${info.price}MXN</span>{" "}
           </p>
         </div>
-        <div className="w-full flex justify-center items-center" >
-          <button className=" h-5 w-5 text-white text-xs bg-dark-blue border-2 rounded-sm border-sky-200" >+</button>
-          <span className=" h-5 w-5 flex items-center justify-center text-xs border-2 border-sky-200 bg-dark-blue" >{info.quantity}</span>
-          <button className=" h-5 w-5 text-white text-xs bg-dark-blue border-2 rounded-sm border-sky-200" >-</button>
+        <div className="w-full flex justify-center items-center">
+          <button
+            onClick={onAddClick}
+            disabled={info.quantity === 5}
+            className=" h-5 w-5 text-white text-xs bg-dark-blue border-2 rounded-sm border-sky-200 disabled:bg-gray-500"
+          >
+            +
+          </button>
+          <span className=" h-5 w-5 flex items-center justify-center text-xs border-2 border-sky-200 bg-dark-blue">
+            {info.quantity}
+          </span>
+          <button
+            onClick={onSustractionClick}
+            disabled={info.quantity === 0}
+            className=" h-5 w-5 text-white text-xs bg-dark-blue border-2 rounded-sm border-sky-200 disabled:bg-gray-500"
+          >
+            -
+          </button>
         </div>
       </div>
       <div className="w-[10%] h-full flex justify-center items-center ">
