@@ -21,7 +21,7 @@ export const pizzaSlice = createSlice({
       state.pizzaShoppingCart.push(action.payload);
     },
     emptyIngredientsPizza: (state, action) => {
-      state.ingredientsPizza = [];
+      state.ingredientsPizza = ["Queso Mozarella"];
     },
     increaseQuantityShoppinCart: (state, action) => {
       const itemCartExist =
@@ -61,6 +61,11 @@ export const pizzaSlice = createSlice({
         }
       }
     },
+    removeItemShoppingCart: (state, action) => {
+      state.pizzaShoppingCart = state.pizzaShoppingCart.filter(
+        (element) => element.id !== action.payload
+      );
+    },
   },
 });
 
@@ -71,6 +76,7 @@ export const {
   emptyIngredientsPizza,
   increaseQuantityShoppinCart,
   decreaseQuantityShoppinCart,
+  removeItemShoppingCart,
 } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
