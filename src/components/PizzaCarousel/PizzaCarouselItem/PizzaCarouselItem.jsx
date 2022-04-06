@@ -1,7 +1,7 @@
 import { FaCartPlus } from "react-icons/fa";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPizzaToShoppingCart } from "../../../Slices/pizzaSlice";
+import { addPizzaToShoppingCart, increaseQuantityShoppinCart } from "../../../Slices/pizzaSlice";
 
 const PizzaCarouselItem = ({ infoPizza }) => {
   const [statePizzaSize, setStatePizzaSize] = React.useState("");
@@ -52,6 +52,8 @@ const PizzaCarouselItem = ({ infoPizza }) => {
     }
     if (pizzaDoesNotExistInShoppingCart) {
       dispatch(addPizzaToShoppingCart(objectPizza));
+    }else{
+      dispatch(increaseQuantityShoppinCart(objectPizza));
     }
   };
 
