@@ -66,6 +66,16 @@ export const pizzaSlice = createSlice({
         (element) => element.id !== action.payload
       );
     },
+    calculatePriceAccordingToQuantity: (state, action) => {
+      const itemPosition = state.pizzaShoppingCart.findIndex(
+        (element) => element.id === action.payload
+      );
+      const quantity = state.pizzaShoppingCart[itemPosition].quantity;
+      const initialPrice = state.pizzaShoppingCart[itemPosition].price;
+      const finalPrice = (state.pizzaShoppingCart[itemPosition].finalPrice =
+        quantity * initialPrice);
+
+    },
   },
 });
 
@@ -77,6 +87,7 @@ export const {
   increaseQuantityShoppinCart,
   decreaseQuantityShoppinCart,
   removeItemShoppingCart,
+  calculatePriceAccordingToQuantity,
 } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
