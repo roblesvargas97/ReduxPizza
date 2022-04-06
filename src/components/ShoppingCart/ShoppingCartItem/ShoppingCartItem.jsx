@@ -4,6 +4,7 @@ import {
   increaseQuantityShoppinCart,
   decreaseQuantityShoppinCart,
   removeItemShoppingCart,
+  calculatePriceAccordingToQuantity,
 } from "../../../Slices/pizzaSlice";
 import "../styles.css";
 
@@ -30,10 +31,12 @@ const ShoppingCartItem = ({ info }) => {
 
   const onAddClick = () => {
     dispatch(increaseQuantityShoppinCart(info.id));
+    dispatch(calculatePriceAccordingToQuantity(info.id));
   };
 
   const onSustractionClick = () => {
     dispatch(decreaseQuantityShoppinCart(info.id));
+    dispatch(calculatePriceAccordingToQuantity(info.id));
   };
 
   const onRemoveItem = () => {
@@ -64,7 +67,7 @@ const ShoppingCartItem = ({ info }) => {
             Cantidad: <span className=" font-light">{info.quantity}</span>{" "}
           </p>
           <p className=" text-left text-xs font-bold">
-            Precio: <span className=" font-light">${info.price}MXN</span>{" "}
+            Precio: <span className=" font-light">${info.finalPrice}MXN</span>{" "}
           </p>
         </div>
         <div className="w-full flex justify-center items-center">

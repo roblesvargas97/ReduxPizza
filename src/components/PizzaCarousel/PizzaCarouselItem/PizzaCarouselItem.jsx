@@ -1,7 +1,11 @@
 import { FaCartPlus } from "react-icons/fa";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPizzaToShoppingCart, increaseQuantityShoppinCart } from "../../../Slices/pizzaSlice";
+import {
+  addPizzaToShoppingCart,
+  increaseQuantityShoppinCart,
+  calculatePriceAccordingToQuantity,
+} from "../../../Slices/pizzaSlice";
 
 const PizzaCarouselItem = ({ infoPizza }) => {
   const [statePizzaSize, setStatePizzaSize] = React.useState("");
@@ -39,6 +43,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
       id: statePizzaId,
       ingredients: ingredients,
       price: statePizzaPrice,
+      finalPrice: statePizzaPrice,
       size: statePizzaSize,
       quantity: 1,
     };
@@ -52,8 +57,10 @@ const PizzaCarouselItem = ({ infoPizza }) => {
     }
     if (pizzaDoesNotExistInShoppingCart) {
       dispatch(addPizzaToShoppingCart(objectPizza));
-    }else{
+      dispatch(calculatePriceAccordingToQuantity(objectPizza.id));
+    } else {
       dispatch(increaseQuantityShoppinCart(objectPizza.id));
+      dispatch(calculatePriceAccordingToQuantity(objectPizza.id));
     }
   };
 
