@@ -41,14 +41,24 @@ const Header = () => {
           Arma tu pizza
         </Link>
       </nav>
-      <div className=" relative" >
+      <div className=" relative">
         <button
           onClick={() => dispatch(setShowShoppingCart(!ShowCart))}
-          className=" h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2 border-transparent hover:border-blue rounded-lg bg-white-glass backdrop-blur-lg text-white"
+          className={` ${
+            ShowCart ? "border-blue" : "border-transparent"
+          } group h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2 hover:border-blue rounded-lg bg-white-glass backdrop-blur-lg text-white transition-all`}
         >
-          <FaShoppingCart />
+          <div
+            className={` ${
+              ShowCart
+                ? "border-blue bg-cyan-500"
+                : " border-transparent bg-transparent"
+            } w-9 h-9 bg-transparent group-hover:bg-cyan-500 group-hover:border-blue border-2 rounded-lg flex items-center justify-center `}
+          >
+            <FaShoppingCart />
+          </div>
         </button>
-        {ShowCart && <ShoppingCart/>}
+        {ShowCart && <ShoppingCart />}
       </div>
       <button className="l w-14 h-7 p-1 flex items-center border-2 rounded-lg bg-white-glass backdrop-blur-sm border-blue justify-between relative cursor-pointer transition-all duration-300 ease-in-out shadow-2xl ">
         <FaSun className=" text-white" />
