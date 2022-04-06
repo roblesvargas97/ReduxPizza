@@ -5,14 +5,19 @@ import HeaderMobile from "./components/HeaderMobile/HeaderMobile";
 import MenuMobile from "./components/MenuMobile/MenuMobile";
 import BuildPizza from "./pages/BuildPizza/BuildPizza";
 import Home from "./pages/Home/Home";
-import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import BackGroundShoppingCart from "./components/ShoppingCart/BackGroundShoppingCart";
+import { useSelector } from "react-redux";
 
 function App() {
+  const ShowCart = useSelector((state) => state.ui.showShoppingCart);
+  console.log(ShowCart);
+
   return (
     <HashRouter>
       <Header />
       <HeaderMobile />
       {/* <MenuMobile/> */}
+      {ShowCart && <BackGroundShoppingCart />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/build-pizza" element={<BuildPizza />} />
