@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   increaseQuantityShoppinCart,
   decreaseQuantityShoppinCart,
+  removeItemShoppingCart,
 } from "../../../Slices/pizzaSlice";
 import "../styles.css";
 
@@ -33,6 +34,10 @@ const ShoppingCartItem = ({ info }) => {
 
   const onSustractionClick = () => {
     dispatch(decreaseQuantityShoppinCart(info.id));
+  };
+
+  const onRemoveItem = () => {
+    dispatch(removeItemShoppingCart(info.id));
   };
 
   return (
@@ -83,7 +88,10 @@ const ShoppingCartItem = ({ info }) => {
         </div>
       </div>
       <div className="w-[10%] h-full flex justify-center items-center ">
-        <button className=" w-full h-full rounded-l-none bg-dark-blue w-100% text-white font-bold text-xl rounded-sm">
+        <button
+          onClick={onRemoveItem}
+          className=" w-full h-full rounded-l-none bg-dark-blue w-100% text-white font-bold text-xl rounded-sm"
+        >
           x
         </button>
       </div>
