@@ -53,7 +53,7 @@ const Header = () => {
               ShowCart
                 ? "border-blue bg-cyan-500"
                 : " border-transparent bg-transparent"
-            } w-9 h-9 bg-transparent group-hover:bg-cyan-500 group-hover:border-blue border-2 rounded-lg flex items-center justify-center `}
+            } w-9 h-9 bg-transparent group-hover:bg-cyan-500 group-hover:animate-bounceButton group-hover:border-blue border-2 rounded-lg flex items-center justify-center `}
           >
             <FaShoppingCart />
           </div>
