@@ -75,7 +75,7 @@ const ShoppingCartItem = ({ info }) => {
           </span>
           <button
             onClick={onSustractionClick}
-            disabled={info.quantity === 0}
+            disabled={info.quantity === 1}
             className=" h-5 w-5 text-white text-xs bg-dark-blue border-2 rounded-sm border-sky-200 disabled:bg-gray-500"
           >
             -

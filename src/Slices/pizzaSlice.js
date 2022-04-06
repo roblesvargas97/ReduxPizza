@@ -55,7 +55,7 @@ export const pizzaSlice = createSlice({
       if (itemCartExist) {
         const quantityItem = state.pizzaShoppingCart[itemPosition].quantity;
 
-        if (quantityItem >= 1) {
+        if (quantityItem >= 2) {
           state.pizzaShoppingCart[itemPosition].quantity--;
           // console.log(current(state.pizzaShoppingCart));
         }
