@@ -53,7 +53,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
     if (pizzaDoesNotExistInShoppingCart) {
       dispatch(addPizzaToShoppingCart(objectPizza));
     }else{
-      dispatch(increaseQuantityShoppinCart(objectPizza));
+      dispatch(increaseQuantityShoppinCart(objectPizza.id));
     }
   };
 

@@ -27,11 +27,11 @@ export const pizzaSlice = createSlice({
     increaseQuantityShoppinCart: (state, action) => {
       const itemCartExist =
         state.pizzaShoppingCart.filter(
-          (element) => element.id === action.payload.id
+          (element) => element.id === action.payload
         ).length !== 0;
 
       const itemPosition = state.pizzaShoppingCart.findIndex(
-        (element) => element.id === action.payload.id
+        (element) => element.id === action.payload
       );
 
       if (itemCartExist) {
