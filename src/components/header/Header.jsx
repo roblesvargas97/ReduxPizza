@@ -67,11 +67,17 @@ const Header = () => {
           >
             <FaShoppingCart />
           </div>
-          { shoppingCartItemsQuantity!== 0 &&
-            <span className={` ${ShowCart?' bg-blue animate-none':'bg-white-glass animate-pulse' }  group-hover:border-blue group-hover:bg-blue group-hover:animate-none border-2 border-transparent absolute flex justify-center items-center rounded-fulll h-5 w-5 rounded-full left-[-10px] top-[-10px] text-sm`} >
+          {shoppingCartItemsQuantity !== 0 && (
+            <span
+              className={` ${
+                ShowCart
+                  ? " bg-blue animate-none"
+                  : "bg-white-glass animate-pulse"
+              }  group-hover:border-blue group-hover:bg-blue group-hover:animate-none border-2 border-transparent absolute flex justify-center items-center rounded-fulll h-5 w-5 rounded-full left-[-10px] top-[-10px] text-sm`}
+            >
               {shoppingCartItemsQuantity}
             </span>
-          }
+          )}
         </button>
         {ShowCart && <ShoppingCart />}
       </div>
