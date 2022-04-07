@@ -57,6 +57,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
       statePizzaId === ""
     ) {
       setShowAlert(true);
+      return;
     } 
 
     if (pizzaDoesNotExistInShoppingCart) {
