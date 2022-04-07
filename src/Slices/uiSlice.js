@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   showShoppingCart: false,
+  showMenuMobile: false,
 };
 
 export const uiSlice = createSlice({
@@ -11,9 +12,12 @@ export const uiSlice = createSlice({
     setShowShoppingCart: (state, action) => {
       state.showShoppingCart = action.payload;
     },
+    setShowMenuMobile: (state, action) => {
+      state.showMenuMobile = action.payload;
+    },
   },
 });
 
-export const { setShowShoppingCart } = uiSlice.actions;
+export const { setShowShoppingCart ,setShowMenuMobile } = uiSlice.actions;
 
 export default uiSlice.reducer;
