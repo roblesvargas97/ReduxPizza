@@ -13,7 +13,7 @@ const HeaderMobile = () => {
   };
 
   return (
-    <div className=" fixed top-0 left-0 z-50 w-full h-[15vh] flex items-center justify-between px-10 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 border-b-2 border-blue backdrop-blur-sm min-w-[320px] md:hidden ">
+    <div className=" fixed top-0 left-0 z-50 w-full h-[15vh] flex items-center justify-between px-10 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 border-b-2 border-blue backdrop-blur-sm min-w-[320px] lg:hidden ">
       <button
         onClick={onClickShowMenuMobile}
         type="button"

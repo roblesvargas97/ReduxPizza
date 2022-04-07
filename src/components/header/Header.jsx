@@ -19,7 +19,7 @@ const Header = () => {
   );
 
   return (
-    <header className=" fixed top-0 left-0 z-50 w-full h-[15vh]  bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 backdrop-blur-sm border-b-2 border-blue-500 hidden md:flex items-center justify-between lg:px-10 md:px-5 ">
+    <header className=" fixed top-0 left-0 z-50 w-full h-[15vh]  bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 backdrop-blur-sm border-b-2 border-blue-500 hidden lg:flex items-center justify-between lg:px-10 md:px-5 ">
       <img
         className="l w-[120px] h-[80px]"
         src="https://i.imgur.com/KVwBOVw.png"
