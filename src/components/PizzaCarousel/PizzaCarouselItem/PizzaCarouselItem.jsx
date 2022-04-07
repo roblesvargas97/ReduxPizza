@@ -11,6 +11,8 @@ const PizzaCarouselItem = ({ infoPizza }) => {
   const [statePizzaSize, setStatePizzaSize] = React.useState("");
   const [statePizzaPrice, setStatePizzaPrice] = React.useState("");
   const [statePizzaId, setStatePizzaId] = React.useState("");
+  const [stateShowIngredients, setStateShowIngredients] = React.useState(false);
+  const [showAlert, setShowAlert] = React.useState(false);
   const { img, name, id, prices, ingredients } = infoPizza;
 
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
     setStatePizzaSize(pizzaSize);
     setStatePizzaId(pizzaId);
     setStatePizzaPrice(pizzaPrice);
+    setShowAlert(false);
   };
 
   const addPizzaToShoppingCartHandle = () => {
@@ -53,8 +56,9 @@ const PizzaCarouselItem = ({ infoPizza }) => {
       statePizzaPrice === "" ||
       statePizzaId === ""
     ) {
-      return;
-    }
+      setShowAlert(true);
+    } 
+
     if (pizzaDoesNotExistInShoppingCart) {
       dispatch(addPizzaToShoppingCart(objectPizza));
       dispatch(calculatePriceAccordingToQuantity(objectPizza.id));
@@ -63,6 +67,31 @@ const PizzaCarouselItem = ({ infoPizza }) => {
       dispatch(calculatePriceAccordingToQuantity(objectPizza.id));
     }
   };
+
+  const onShowIngredients = () => {
+    setStateShowIngredients(!stateShowIngredients);
+  };
+
+  const onCloseShowIngredients = () => {
+    setStateShowIngredients(false);
+  };
+
+  const separateArrayByComma = (array) => {
+    const stringArray = array.join(", ");
+    const lastCommaFromArray = stringArray.lastIndexOf(", ");
+    if (lastCommaFromArray !== -1) {
+      return (
+        stringArray.substring(0, lastCommaFromArray) +
+        " y" +
+        stringArray.substring(lastCommaFromArray + 1) +
+        "."
+      );
+    } else {
+      return stringArray;
+    }
+  };
+
+  const ingredientsFormat = separateArrayByComma(ingredients);
 
   return (
     <div className="main-container ">
@@ -74,13 +103,38 @@ const PizzaCarouselItem = ({ infoPizza }) => {
             src={img}
             alt=""
           />
+          <article
+            className={`${
+              stateShowIngredients ? " animate-rotateAndShow2" : " opacity-0 "
+            } flex flex-col justify-center items-center  rounded-t-lg duration-500 absolute h-full w-full overflow-hidden transition-all`}
+          >
+            <div className=" absolute py-5 px-7 w-full left-0 bg-transparent flex flex-col justify-center items-center z-[40]">
+              <h3 className=" text-center font-bold text-white ">
+                Ingredientes
+              </h3>
+              <p className=" text-center font-normal text-white">
+                Deliciosa pizza compuesta por {ingredientsFormat}{" "}
+              </p>
+            </div>
+            <button
+              onClick={onCloseShowIngredients}
+              className={`${
+                stateShowIngredients ? "cursor-pointer" : " cursor-auto"
+              } absolute top-2 right-2 group border-2 z-40 border-blue hover:border-blue bg-white-glass h-12 w-12 flex justify-center items-center rounded-lg transition-all text-white text-2xl`}
+            >
+              <div className=" flex items-center justify-center group-hover:bg-cyan-500 group-hover:animate-bounceButton rounded h-8 w-8 transition-all ">
+                x
+              </div>
+            </button>
+            <div className=" absolute top-0 left-0 h-full w-full bg-dark-blue/60 z-[0]"></div>
+          </article>
           <button
             onClick={addPizzaToShoppingCartHandle}
-            data-mdb-ripple="true"
-            data-mdb-ripple-color="light"
-            className=" h-10 w-10 flex justify-center items-center rounded-full cursor-pointer absolute top-[10px] left-[10px] text-white text-3xl"
+            className=" group border-2 z-40 border-transparent hover:border-blue bg-white-glass h-12 w-12 flex justify-center items-center rounded-lg cursor-pointer absolute top-[5px] left-[5px] transition-all text-white text-2xl"
           >
-            <FaCartPlus />
+            <div className=" flex items-center justify-center group-hover:bg-cyan-500 group-hover:animate-bounceButton rounded h-8 w-8 transition-all ">
+              <FaCartPlus />
+            </div>
           </button>
         </div>
         <div className=" h-[50%]  md:h-[40%] lg:h-[50%] bg-gradient-to-tr from-sky-500 via-sky-200 to-white space-y-3  rounded-b-lg p-2 flex flex-col justify-center items-center">
@@ -88,15 +142,14 @@ const PizzaCarouselItem = ({ infoPizza }) => {
             {name}
           </h4>
           <button
-            data-mdb-ripple="true"
-            data-mdb-ripple-color="light"
-            className=" w-44 h-12 flex justify-center items-center text-base font-light bg-dark-blue  rounded-lg text-white"
+            onClick={onShowIngredients}
+            className=" w-44 h-12 hover:bg-blue hover:border-dark-blue hover:text-dark-blue hover:font-bold border-2 border-transparent flex justify-center items-center text-base font-light bg-dark-blue  rounded-lg text-white transition-all"
           >
             Ingredientes
           </button>
           <select
             onChange={handleOnChange}
-            className="w-44 rounded-lg font-light text-base h-12 bg-dark-blue text-white focus:ring-4 ring-white outline-4 focus:outline-blue "
+            className={` ${showAlert? 'bg-green-500 ring-4 ring-green-800 ':'bg-dark-blue '} w-44 rounded-lg hover:bg-blue  hover:border-dark-blue hover:text-dark-blue hover:font-bold  font-light text-base h-12 text-white focus:ring-4 ring-white outline-4 focus:outline-blue transition-all `}
           >
             <option
               className=" text-center text-base font-light"
@@ -104,7 +157,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
               data-size=""
               data-id=""
             >
-              Selecciona tu Pizza
+              Tamaños Precios
             </option>
 
             {prices.map((element, index) => (
