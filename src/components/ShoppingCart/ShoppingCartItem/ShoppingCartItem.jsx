@@ -11,24 +11,6 @@ import "../styles.css";
 const ShoppingCartItem = ({ info }) => {
   const dispatch = useDispatch();
 
-  console.log(info);
-
-  const separateArrayByComma = (array) => {
-    const stringArray = array.join(", ");
-    const lastCommaFromArray = stringArray.lastIndexOf(", ");
-    if (lastCommaFromArray !== -1) {
-      return (
-        stringArray.substring(0, lastCommaFromArray) +
-        " y" +
-        stringArray.substring(lastCommaFromArray + 1) +
-        "."
-      );
-    } else {
-      return stringArray;
-    }
-  };
-  const formatIngredients = separateArrayByComma(info.ingredients);
-
   const onAddClick = () => {
     dispatch(increaseQuantityShoppinCart(info.id));
     dispatch(calculatePriceAccordingToQuantity(info.id));
