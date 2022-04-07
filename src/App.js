@@ -10,13 +10,12 @@ import { useSelector } from "react-redux";
 
 function App() {
   const ShowCart = useSelector((state) => state.ui.showShoppingCart);
-  console.log(ShowCart);
 
   return (
     <HashRouter>
       <Header />
       <HeaderMobile />
-      {/* <MenuMobile/> */}
+      <MenuMobile/>
       {ShowCart && <BackGroundShoppingCart />}
       <Routes>
         <Route path="/" element={<Home />} />
