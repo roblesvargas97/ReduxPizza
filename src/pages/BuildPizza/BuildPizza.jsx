@@ -15,7 +15,8 @@ const BuildPizza = () => {
   const [stateQuantify, setStateQuantify] = React.useState(1);
   const [stateIngredientsFormat, setStateIngredientsFormat] =
     React.useState("");
-  const [stateFinalPrice, setStateFinalPrice] = React.useState(0);
+    const [stateFinalPrice, setStateFinalPrice] = React.useState(0);
+    const [stateIngredientsPrice , setStateIngredientsPrice] = React.useState(0);
 
   const dispatch = useDispatch();
 
@@ -29,37 +30,50 @@ const BuildPizza = () => {
         case "jamon":
           return (
             dispatch(setIngredient("Jamon")),
-            setStatePrice((prevState) => prevState + 15)
+            setStatePrice((prevState) => prevState + 15),
+            setStateIngredientsPrice((prevState)=> prevState + 15)
           );
         case "piña":
           return (
             dispatch(setIngredient("Piña")),
-            setStatePrice((prevState) => prevState + 15)
+            setStatePrice((prevState) => prevState + 15),
+            setStateIngredientsPrice((prevState)=> prevState + 15)
+
           );
         case "pepperonni":
           return (
             dispatch(setIngredient("Pepperonni")),
-            setStatePrice((prevState) => prevState + 15)
+            setStatePrice((prevState) => prevState + 15),
+            setStateIngredientsPrice((prevState)=> prevState + 15)
+            
           );
         case "salami":
           return (
             dispatch(setIngredient("Salami")),
-            setStatePrice((prevState) => prevState + 15)
+            setStatePrice((prevState) => prevState + 15),
+            setStateIngredientsPrice((prevState)=> prevState + 15)
+
           );
         case "queso-crema":
           return (
             dispatch(setIngredient("Queso Crema")),
-            setStatePrice((prevState) => prevState + 5)
+            setStatePrice((prevState) => prevState + 5),
+            setStateIngredientsPrice((prevState)=> prevState + 5)
+
           );
         case "queso-parmesano":
           return (
             dispatch(setIngredient("Queso Parmesano")),
-            setStatePrice((prevState) => prevState + 5)
+            setStatePrice((prevState) => prevState + 5),
+            setStateIngredientsPrice((prevState)=> prevState + 5)
+
           );
         case "queso-cheddar":
           return (
             dispatch(setIngredient("Queso Cheddar")),
-            setStatePrice((prevState) => prevState + 5)
+            setStatePrice((prevState) => prevState + 5),
+            setStateIngredientsPrice((prevState)=> prevState + 5)
+
           );
         default:
           break;
@@ -70,37 +84,53 @@ const BuildPizza = () => {
         case "jamon":
           return (
             dispatch(removeIngredient("Jamon")),
-            setStatePrice((prevState) => prevState - 15)
+            setStatePrice((prevState) => prevState - 15),
+            setStateIngredientsPrice((prevState)=> prevState - 15)
+
+            
           );
         case "piña":
           return (
             dispatch(removeIngredient("Piña")),
-            setStatePrice((prevState) => prevState - 15)
+            setStatePrice((prevState) => prevState - 15),
+            setStateIngredientsPrice((prevState)=> prevState - 15)
+
+            
           );
         case "pepperonni":
           return (
             dispatch(removeIngredient("Pepperonni")),
-            setStatePrice((prevState) => prevState - 15)
+            setStatePrice((prevState) => prevState - 15),
+            setStateIngredientsPrice((prevState)=> prevState - 15)
+
           );
         case "salami":
           return (
             dispatch(removeIngredient("Salami")),
-            setStatePrice((prevState) => prevState - 15)
+            setStatePrice((prevState) => prevState - 15),
+            setStateIngredientsPrice((prevState)=> prevState - 15)
+
           );
         case "queso-crema":
           return (
             dispatch(removeIngredient("Queso Crema")),
-            setStatePrice((prevState) => prevState - 5)
+            setStatePrice((prevState) => prevState - 5),
+            setStateIngredientsPrice((prevState)=> prevState - 5)
+
           );
         case "queso-parmesano":
           return (
             dispatch(removeIngredient("Queso Parmesano")),
-            setStatePrice((prevState) => prevState - 5)
+            setStatePrice((prevState) => prevState - 5),
+            setStateIngredientsPrice((prevState)=> prevState - 5)
+
           );
         case "queso-cheddar":
           return (
             dispatch(removeIngredient("Queso Cheddar")),
-            setStatePrice((prevState) => prevState - 5)
+            setStatePrice((prevState) => prevState - 5),
+            setStateIngredientsPrice((prevState)=> prevState - 5)
+
           );
         default:
           break;
@@ -112,11 +142,11 @@ const BuildPizza = () => {
     const size = e.target.value;
     switch (size) {
       case "grande":
-        return setStateSize("Grande"), setStatePrice(135);
+        return setStateSize("Grande"), setStatePrice(135 + stateIngredientsPrice );
       case "chica":
-        return setStateSize("Chica"), setStatePrice(70);
+        return setStateSize("Chica"), setStatePrice(70 +stateIngredientsPrice );
       case "mediana":
-        return setStateSize("Mediana"), setStatePrice(95);
+        return setStateSize("Mediana"), setStatePrice(95 + stateIngredientsPrice);
       default:
         break;
     }
