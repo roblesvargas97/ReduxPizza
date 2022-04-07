@@ -8,6 +8,16 @@ import { setShowShoppingCart } from "../../Slices/uiSlice";
 const Header = () => {
   const dispatch = useDispatch();
   const ShowCart = useSelector((state) => state.ui.showShoppingCart);
+
+  const shoppingCartState = useSelector(
+    (state) => state.pizza.pizzaShoppingCart
+  );
+
+  const shoppingCartItemsQuantity = shoppingCartState.reduce(
+    (a, b) => a + b.quantity,
+    0
+  );
+
   return (
     <header className=" fixed top-0 left-0 z-50 w-full h-[15vh]  bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 backdrop-blur-sm border-b-2 border-blue-500 hidden md:flex items-center justify-between lg:px-10 md:px-5 ">
       <img
@@ -46,7 +56,7 @@ const Header = () => {
           onClick={() => dispatch(setShowShoppingCart(!ShowCart))}
           className={` ${
             ShowCart ? "border-blue" : "border-transparent"
-          } group h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2 hover:border-blue rounded-lg bg-white-glass backdrop-blur-lg text-white transition-all`}
+          } relative group h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2 hover:border-blue rounded-lg bg-white-glass backdrop-blur-lg text-white transition-all`}
         >
           <div
             className={` ${
@@ -57,6 +67,11 @@ const Header = () => {
           >
             <FaShoppingCart />
           </div>
+          { shoppingCartItemsQuantity!== 0 &&
+            <span className={` ${ShowCart?' bg-blue animate-none':'bg-white-glass animate-pulse' }  group-hover:border-blue group-hover:bg-blue group-hover:animate-none border-2 border-transparent absolute flex justify-center items-center rounded-fulll h-5 w-5 rounded-full left-[-10px] top-[-10px] text-sm`} >
+              {shoppingCartItemsQuantity}
+            </span>
+          }
         </button>
         {ShowCart && <ShoppingCart />}
       </div>
