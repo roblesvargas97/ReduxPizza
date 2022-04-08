@@ -18,7 +18,7 @@ const MenuMobile = () => {
         <h2 className=" font-bold text-white text-3xl ">!Bienvenido¡</h2>
         <nav className=" w-full flex flex-col space-y-5">
           <Link
-            to="#"
+            to="/"
             className=" w-full h-16 flex justify-between items-center rounded-lg px-5 py-2 bg-dark-blue text-center font-bold text-white text-xl backdrop-blur-sm border-2 hover:scale-110 hover:bg-blue duration-300 transition-all md:h-20 "
           >
             Menu <FaHome />{" "}
