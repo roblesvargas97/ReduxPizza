@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
-import ShoppingCartButton from "../ShoppingCart/ShoppingCartButton/ShoppingCartButton";
+import ShoppingCartButtonDesktop from "../ShoppingCart/ShoppingCartButton/ShoppingCartButtonDesktop";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const Header = () => {
         </Link>
       </nav>
       <div className=" relative">
-        <ShoppingCartButton />
+        <ShoppingCartButtonDesktop />
         {ShowCart && <ShoppingCart />}
       </div>
       <button className="l w-14 h-7 p-1 flex items-center border-2 rounded-lg bg-white-glass backdrop-blur-sm border-blue justify-between relative cursor-pointer transition-all duration-300 ease-in-out shadow-2xl ">

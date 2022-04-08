@@ -7,7 +7,7 @@ import BuildPizza from "./pages/BuildPizza/BuildPizza";
 import Home from "./pages/Home/Home";
 import BackGroundShoppingCart from "./components/ShoppingCart/BackGroundShoppingCart";
 import { useSelector } from "react-redux";
-import ShoppingCartButton from './components/ShoppingCart/ShoppingCartButton/ShoppingCartButton';
+import ShoppingCartButtonMobile from './components/ShoppingCart/ShoppingCartButton/ShoppingCartButtonMobile';
 
 function App() {
   const ShowCart = useSelector((state) => state.ui.showShoppingCart);
@@ -18,7 +18,7 @@ function App() {
       <HeaderMobile />
       <MenuMobile />
       <main className="relative" >
-        <ShoppingCartButton/>
+        <ShoppingCartButtonMobile/>
         {ShowCart && <BackGroundShoppingCart />}
         <Routes>
           <Route path="/" element={<Home />} />
