@@ -5,7 +5,7 @@ import SwirlOrnament from "../../components/SwirlOrnament/SwirlOrnament";
 
 const PizzaMenu = () => {
   return (
-    <div className=" h-[85vh] overflow-hidden flex flex-col lg:flex-row lg:justify-between lg:items-center relative p-5 bg-gradient-to-r space-y-5 from-dark-blue via-dark-blue to-dark-blue-1">
+    <div className=" h-[85vh] overflow-hidden flex flex-col lg:flex-row lg:justify-between lg:items-center relative p-5 bg-gradient-to-r space-y-5 from-dark-blue via-dark-blue to-dark-blue-1" id="menu">
       <SwirlOrnament
         styles=" hidden opacity-90 lg:block absolute w-96 top-[-60%] left-[-15%] "
         fillColor="white"
