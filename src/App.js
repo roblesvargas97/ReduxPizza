@@ -9,6 +9,7 @@ import BackGroundShoppingCart from "./components/ShoppingCart/BackGroundShopping
 import { useSelector } from "react-redux";
 import ShoppingCartButtonMobile from './components/ShoppingCart/ShoppingCartButton/ShoppingCartButtonMobile';
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import BackgroundHeader from "./components/BackgroundHeader/BackgroundHeader";
 
 function App() {
   const ShowCart = useSelector((state) => state.ui.showShoppingCart);
@@ -17,6 +18,7 @@ function App() {
     <HashRouter>
       <Header />
       <HeaderMobile />
+      <BackgroundHeader/>
       <MenuMobile />
       <main className="relative" >
         <ShoppingCartButtonMobile/>
