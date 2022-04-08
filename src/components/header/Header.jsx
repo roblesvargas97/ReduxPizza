@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaSun, FaMoon, FaShoppingCart } from "react-icons/fa";
+import { FaSun, FaMoon } from "react-icons/fa";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowShoppingCart } from "../../Slices/uiSlice";
+import ShoppingCartButton from "../ShoppingCart/ShoppingCartButton/ShoppingCartButton";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -52,33 +52,7 @@ const Header = () => {
         </Link>
       </nav>
       <div className=" relative">
-        <button
-          onClick={() => dispatch(setShowShoppingCart(!ShowCart))}
-          className={` ${
-            ShowCart ? "border-blue" : "border-transparent"
-          } relative group h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2 hover:border-blue rounded-lg bg-white-glass backdrop-blur-lg text-white transition-all`}
-        >
-          <div
-            className={` ${
-              ShowCart
-                ? "border-blue bg-cyan-500"
-                : " border-transparent bg-transparent"
-            } w-9 h-9 bg-transparent group-hover:bg-cyan-500 group-hover:animate-bounceButton group-hover:border-blue border-2 rounded-lg flex items-center justify-center `}
-          >
-            <FaShoppingCart />
-          </div>
-          {shoppingCartItemsQuantity !== 0 && (
-            <span
-              className={` ${
-                ShowCart
-                  ? " bg-blue animate-none"
-                  : "bg-white-glass animate-pulse"
-              }  group-hover:border-blue group-hover:bg-blue group-hover:animate-none border-2 border-transparent absolute flex justify-center items-center rounded-fulll h-5 w-5 rounded-full left-[-10px] top-[-10px] text-sm`}
-            >
-              {shoppingCartItemsQuantity}
-            </span>
-          )}
-        </button>
+        <ShoppingCartButton />
         {ShowCart && <ShoppingCart />}
       </div>
       <button className="l w-14 h-7 p-1 flex items-center border-2 rounded-lg bg-white-glass backdrop-blur-sm border-blue justify-between relative cursor-pointer transition-all duration-300 ease-in-out shadow-2xl ">
