@@ -18,13 +18,15 @@ const ShoppingCartButton = () => {
     <button
       onClick={() => dispatch(setShowShoppingCart(!ShowCart))}
       className={` ${
-        ShowCart ? "border-blue" : "lg:border-transparent"
-      } fixed z-30 lg:hidden bottom-2 right-2 group h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2 hover:border-blue rounded-lg lg:bg-white-glass bg-dark-blue lg:backdrop-blur-lg text-white transition-all`}
+        ShowCart
+          ? " border-blue top-[16vh] "
+          : "lg:border-transparent bottom-2 hover:border-blue"
+      } fixed z-30 lg:hidden  right-2 group h-14 w-14 flex justify-center py-2 items-center text-2xl font-bold px-2 border-2  rounded-lg lg:bg-white-glass bg-dark-blue lg:backdrop-blur-lg text-white transition-all`}
     >
       <div
         className={` ${
           ShowCart
-            ? "border-blue bg-cyan-500"
+            ? "border-transparent bg-transparent"
             : " border-transparent bg-transparent"
         } w-9 h-9 bg-transparent group-active:animate-bounceButton group-hover:bg-cyan-500 group-hover:animate-bounceButton group-hover:border-blue border-2 rounded-lg flex items-center justify-center `}
       >
@@ -33,7 +35,7 @@ const ShoppingCartButton = () => {
       {shoppingCartItemsQuantity !== 0 && (
         <span
           className={` ${
-            ShowCart ? " bg-blue animate-none" : "bg-white-glass animate-pulse"
+            ShowCart ? " hidden " : " bg-dark-blue animate-pulse"
           }  group-hover:border-blue group-hover:bg-blue group-hover:animate-none border-2 border-transparent absolute flex justify-center items-center rounded-fulll h-5 w-5 rounded-full left-[-10px] top-[-10px] text-sm`}
         >
           {shoppingCartItemsQuantity}
