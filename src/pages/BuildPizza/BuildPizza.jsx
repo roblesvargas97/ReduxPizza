@@ -204,7 +204,7 @@ const BuildPizza = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-[85vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0">
+    <div className="w-full min-h-[85vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0" id="build-pizza">
       <section className="w-full lg:w-[50%] lg:min-h-[75vh] min-w-[320px] flex flex-col justify-center items-center ">
         <h2 className="text-4xl md:text-7xl lg:text-6xl font-bold text-center text-white">
           Arma tu pizza

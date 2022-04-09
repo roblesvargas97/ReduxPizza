@@ -1,11 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaPizzaSlice, FaInfo, FaHome, FaSun, FaMoon } from "react-icons/fa";
+import {MdOutlineFoodBank} from 'react-icons/md';
 import { useSelector } from "react-redux";
 import { HashLink } from "react-router-hash-link";
 
 const MenuMobile = () => {
   const stateShowMobile = useSelector((state) => state.ui.showMenuMobile);
+
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
 
   return (
     <div
@@ -21,7 +27,7 @@ const MenuMobile = () => {
           <HashLink
             to="/#home"
             scroll={(el) =>
-              el.scrollIntoView({ behavior: "auto", block: "end" })
+              el.scrollIntoView({ behavior: "smooth", block: "end" })
             }
             className=" w-full h-16 flex justify-between items-center rounded-lg px-5 py-2 bg-dark-blue text-center font-bold text-white text-xl backdrop-blur-sm border-2 hover:scale-110 hover:bg-blue duration-300 transition-all md:h-20 "
           >
@@ -30,24 +36,23 @@ const MenuMobile = () => {
           <HashLink
             to="/#menu"
             scroll={(el) =>
-              el.scrollIntoView({ behavior: "auto", block: "end" })
+              el.scrollIntoView({ behavior: "smooth", block: "end" })
             }
             className=" w-full h-16 flex justify-between items-center rounded-lg px-5 py-2 bg-dark-blue text-center font-bold text-white text-xl backdrop-blur-sm border-2 hover:scale-110 hover:bg-blue duration-300 transition-all md:h-20 "
           >
-            Menu <FaHome />{" "}
+            Menu <MdOutlineFoodBank />{" "}
           </HashLink>
           <HashLink
             to="/#info"
-            scroll={(el) =>
-              el.scrollIntoView({ behavior: "smooth" , block: "center" })
-            }
+            scroll={(el) => scrollWithOffset(el)}
             className=" w-full h-16 flex justify-between items-center rounded-lg px-5 py-2 bg-dark-blue text-center font-bold text-white text-xl backdrop-blur-sm border-2 hover:scale-110 hover:bg-blue duration-300 transition-all md:h-20 "
           >
             Informacion <FaInfo />{" "}
           </HashLink>
           <HashLink
+            to="/build-pizza#build-pizza"
+            scroll={(el) => scrollWithOffset(el)}
             className=" w-full h-16 flex justify-between items-center rounded-lg px-5 py-2 bg-dark-blue text-center font-bold text-white text-xl backdrop-blur-sm border-2 hover:scale-110 hover:bg-blue duration-300 transition-all md:h-20 "
-            to="/build-pizza"
           >
             Arma tu pizza <FaPizzaSlice />{" "}
           </HashLink>
