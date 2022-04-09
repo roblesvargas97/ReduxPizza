@@ -4,6 +4,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
 import ShoppingCartButtonDesktop from "../ShoppingCart/ShoppingCartButton/ShoppingCartButtonDesktop";
+import { HashLink } from "react-router-hash-link";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,12 @@ const Header = () => {
   const shoppingCartState = useSelector(
     (state) => state.pizza.pizzaShoppingCart
   );
+
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80;
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
+  };
 
   const shoppingCartItemsQuantity = shoppingCartState.reduce(
     (a, b) => a + b.quantity,
@@ -26,30 +33,35 @@ const Header = () => {
         alt="logo"
       />
       <nav className="flex justify-between space-x-5 bg-white-glass backdrop-blur-sm text-white text-xl font-bold py-2 px-10  rounded-lg border-2 border-transparent hover:border-blue transition-all duration-300">
-        <Link
-          to="/"
+        <HashLink
+          to="/#home"
+          scroll={(el) =>
+            el.scrollIntoView({ behavior: "smooth", block: "end" })
+          }
           className="first-letter:text-blue py-1 px-2 rounded-lg border-2 border-transparent transition-all duration-300  ease-in hover:border-blue hover:text-white hover:first-letter:text-dark-blue hover:bg-cyan-500 hover:animate-bounceButton"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
         >
           Menu
-        </Link>
-        <Link
-          to="#"
+        </HashLink>
+        <HashLink
+          to="/#info"
+          scroll={(el) => scrollWithOffset(el)}
           className="first-letter:text-blue py-1 px-2 rounded-lg border-2 border-transparent transition-all duration-300  ease-in hover:border-blue hover:text-white hover:first-letter:text-dark-blue hover:bg-cyan-500 hover:animate-bounceButton"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
         >
           Informacion
-        </Link>
-        <Link
-          to="/build-pizza"
+        </HashLink>
+        <HashLink
+          to="/build-pizza#build-pizza"
+          scroll={(el) => scrollWithOffset(el)}
           className="first-letter:text-blue py-1 px-2 rounded-lg border-2 border-transparent transition-all duration-300  ease-in hover:border-blue hover:text-white hover:first-letter:text-dark-blue hover:bg-cyan-500 hover:animate-bounceButton"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
         >
           Arma tu pizza
-        </Link>
+        </HashLink>
       </nav>
       <div className=" relative">
         <ShoppingCartButtonDesktop />
