@@ -1,6 +1,7 @@
 import React from "react";
 import InfoItem from "../InfoItem/InfoItem";
 import { FaChevronDown } from "react-icons/fa";
+import { HashLink } from "react-router-hash-link";
 
 const Info = () => {
   const infoArray = [
@@ -23,13 +24,15 @@ const Info = () => {
       {infoArray.map((element, index) => (
         <InfoItem key={index} icon={element.icon} text={element.text} />
       ))}
-      <button
+      <HashLink
+        to="/#menu"
+        scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "end" })}
         data-mdb-ripple="true"
         data-mdb-ripple-color="info"
         className=" absolute top-[-72px] md:top-[-48px] rounded-full   ml-0 w-52 h-16 border-[3px] border-dark-blue hover:border-blue  flex justify-between items-center font-bold  py-1 px-10 text-xl bg-gradient-to-r from-sky-300 via-sky-100 to-white text-dark-blue hover:scale-105 transition-all"
       >
         Menu <FaChevronDown />{" "}
-      </button>
+      </HashLink>
     </div>
   );
 };
