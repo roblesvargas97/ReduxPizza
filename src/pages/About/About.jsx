@@ -5,7 +5,7 @@ import SwirlOrnament from "../../components/SwirlOrnament/SwirlOrnament";
 
 const About = () => {
   return (
-    <div className=" w-full min-h-[85vh] overflow-hidden p-5  bg-white flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0 ">
+    <div className=" w-full min-h-[85vh] overflow-hidden p-5  bg-white flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0 " id="info">
       <section className=" relative lg:w-[50%]  flex flex-col items-center lg:items-start space-y-2">
         <SwirlOrnament
           styles=" absolute lg:h-96 lg:top-[-75%] lg:left-[50%] md:left-[15%] md:top-[-100%]  hidden md:block  "
