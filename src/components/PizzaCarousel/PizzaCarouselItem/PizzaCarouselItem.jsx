@@ -107,7 +107,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
           <article
             className={`${
               stateShowIngredients ? " animate-rotateAndShow2" : " opacity-0 "
-            } flex flex-col justify-center items-center  rounded-t-lg duration-500 absolute h-full w-full overflow-hidden transition-all`}
+            } flex flex-col justify-center items-center bg-dark-blue/70  rounded-t-lg duration-500 absolute h-full w-full overflow-hidden transition-all`}
           >
             <div className=" absolute py-5 px-7 w-full left-0 bg-transparent flex flex-col justify-center items-center z-[40]">
               <h3 className=" text-center font-bold text-white ">
