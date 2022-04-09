@@ -210,13 +210,13 @@ const BuildPizza = () => {
           Arma tu pizza
         </h2>
         <form
-          className=" mt-3 space-y-3 md:space-y-5 lg:space-y-3 flex flex-col items-center border-2 border-transparent bg-white-glass p-3 hover:border-blue transition-all duration-300 rounded-lg"
+          className=" group mt-3 space-y-3 md:space-y-5 lg:space-y-3 flex flex-col items-center border-2 bg-white-glass p-3 hover:border-white border-blue hover:bg-sky-500 transition-all duration-300 rounded-lg"
           onSubmit={(e) => onHandleSubmit(e)}
         >
-          <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
+          <p className=" group-hover:text-dark-blue text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
             Selecciona el tamaño de pizza:
           </p>
-          <fieldset className="px-5 flex w-full justify-between ">
+          <fieldset className="px-5 flex w-full justify-between text-sky-200 group-hover:text-dark-blue font-normal ">
             <div className=" flex justify-center items-center">
               <input
                 type="radio"
@@ -228,7 +228,7 @@ const BuildPizza = () => {
                 defaultChecked
               />
               <label
-                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className=" text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="big"
               >
                 Grande
@@ -244,7 +244,7 @@ const BuildPizza = () => {
                 onChange={(e) => onChangeSize(e)}
               />
               <label
-                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className=" text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="medium"
               >
                 Mediana
@@ -260,17 +260,17 @@ const BuildPizza = () => {
                 onChange={(e) => onChangeSize(e)}
               />
               <label
-                className=" text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className=" text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="small"
               >
                 Chica
               </label>
             </div>
           </fieldset>
-          <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
+          <p className="group-hover:text-dark-blue text-xl md:text-4xl lg:text-xl font-bold text-white text-center ">
             Selecciona los ingredientes:
           </p>
-          <fieldset className="flex flex-wrap space-x-5 md:space-x-10 lg:space-x-5 justify-center">
+          <fieldset className="flex flex-wrap space-x-5 md:space-x-10 lg:space-x-5 justify-center font-normal text-sky-200 group-hover:text-dark-blue">
             <div className=" flex justify-center items-center">
               <input
                 type="checkbox"
@@ -281,7 +281,7 @@ const BuildPizza = () => {
                 value="jamon"
               />
               <label
-                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className="text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="jamon"
               >
                 Jamon
@@ -297,7 +297,7 @@ const BuildPizza = () => {
                 value="piña"
               />
               <label
-                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className="text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="piña"
               >
                 Piña
@@ -313,7 +313,7 @@ const BuildPizza = () => {
                 value="pepperonni"
               />
               <label
-                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className="text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="pepperonni"
               >
                 Pepperonni
@@ -329,7 +329,7 @@ const BuildPizza = () => {
                 value="salami"
               />
               <label
-                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className="text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="salami"
               >
                 Salami
@@ -345,7 +345,7 @@ const BuildPizza = () => {
                 value="queso-crema"
               />
               <label
-                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className="text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="queso-crema"
               >
                 Queso crema
@@ -361,7 +361,7 @@ const BuildPizza = () => {
                 value="queso-parmesano"
               />
               <label
-                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className="text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="queso-parmesano"
               >
                 Queso parmesano
@@ -377,7 +377,7 @@ const BuildPizza = () => {
                 value="queso-cheddar"
               />
               <label
-                className="text-lg md:text-3xl lg:text-lg text-sky-200 font-light cursor-pointer"
+                className="text-lg md:text-3xl lg:text-lg cursor-pointer"
                 htmlFor="queso-cheddar"
               >
                 Queso cheddar
@@ -385,7 +385,7 @@ const BuildPizza = () => {
             </div>
           </fieldset>
           <div className=" space-y-3 lg:space-y-1">
-            <p className="text-xl md:text-4xl lg:text-xl font-bold text-white text-center">
+            <p className=" group-hover:text-dark-blue text-xl md:text-4xl lg:text-xl font-bold text-white text-center">
               Cantidad
             </p>
             <div className=" flex justify-center items-center">
@@ -393,7 +393,7 @@ const BuildPizza = () => {
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
                 disabled={stateQuantify >= 5}
-                className=" w-10 h-10 md:w-16 md:h-16 lg:w-10 lg:h-10 text-lg md:text-3xl lg:text-lg text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-sky-200  active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
+                className=" w-10 h-10 md:w-16 md:h-16 lg:w-10 lg:h-10 text-lg md:text-3xl lg:text-lg text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-sky-200  active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500 disabled:cursor-not-allowed"
                 type="button"
                 onClick={addQuantify}
               >
@@ -406,7 +406,7 @@ const BuildPizza = () => {
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
                 disabled={stateQuantify === 1}
-                className=" w-10 h-10 text-lg md:w-16 md:h-16 lg:w-10 lg:h-10 text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-sky-200    active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500"
+                className=" w-10 h-10 text-lg md:w-16 md:h-16 lg:w-10 lg:h-10 text-sky-200 font-light bg-dark-blue-1 rounded-lg border-2 border-sky-200    active:scale-75 transition-all duration-300 disabled:opacity-40 disabled:bg-gray-500 disabled:cursor-not-allowed"
                 type="button"
                 onClick={sustractQuantify}
               >
@@ -418,7 +418,7 @@ const BuildPizza = () => {
             <button
               data-mdb-ripple="true"
               data-mdb-ripple-color="info"
-              className=" px-3 py-2 w-auto h-10 md:h-16 lg:h-10 rounded-lg bg-sky-200 text-xl md:text-4xl lg:text-xl font-bold text-dark-blue hover:scale-105 transition-all"
+              className=" group-hover:bg-dark-blue group-hover:text-white px-3 py-2 w-auto h-10 md:h-16 lg:h-10 rounded-lg bg-sky-200 text-xl md:text-4xl lg:text-xl font-bold text-dark-blue hover:scale-105 transition-all"
               type="submit"
             >
               Ordenar Pizza
