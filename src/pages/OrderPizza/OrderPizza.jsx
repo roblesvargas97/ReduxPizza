@@ -18,7 +18,7 @@ const OrderPizza = () => {
       <h2 className=" text-4xl md:text-7xl lg:text-6xl font-bold text-center text-white">
         Revisa tu pedido
       </h2>
-      <div className=" relative h-[60vh] w-full bg-white-glass border-2 border-blue rounded-lg  ">
+      <div className=" w-full lg:w-[50%] relative h-[60vh] bg-white-glass border-2 border-blue rounded-lg  ">
         <div className=" h-[58vh] space-y-2 overflow-y-scroll p-2" >
           {shoppingCartState.map((element, index) => (
             <OrderPizzaItem key={index} info={element} />
