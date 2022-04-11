@@ -19,7 +19,7 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className=" fixed z-20 top-[15vh] left-0 w-full h-[85vh]  md:w-96 md:h-80 md:animate-rotateAndShow2 lg:absolute md:left-[-290%] md:top-[12vh]  transition-all duration-700">
+    <div className=" fixed z-20 top-[15vh] left-0 w-full h-[85vh]  lg:w-96 lg:h-80 md:animate-rotateAndShow2 lg:absolute lg:left-[-290%] lg:top-[12vh]  transition-all duration-700">
       <div className=" hidden md:block h-10 w-10 absolute left-[calc(50%_-_20px)]  rotate-45 bg-blue -z-10 "></div>
       <div className=" w-full h-full border-2 space-y-2 text-xl font-bold border-transparent rounded-none lg:border-blue flex flex-col items-center justify-center bg-dark-blue/95 text-white lg:rounded-lg p-2">
         <h2 className=" text-3xl lg:text-base">Tu Carrito</h2>
