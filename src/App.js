@@ -11,6 +11,7 @@ import ShoppingCartButtonMobile from './components/ShoppingCart/ShoppingCartButt
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import BackgroundHeader from "./components/BackgroundHeader/BackgroundHeader";
 import OrderPizza from "./pages/OrderPizza/OrderPizza";
+import PurchaseForm from "./pages/PurchaseForm/PurchaseForm";
 
 function App() {
   const ShowCart = useSelector((state) => state.ui.showShoppingCart);
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/build-pizza" element={<BuildPizza />} />
           <Route path="/order-pizza" element={<OrderPizza/>} />
+          <Route path="/order-form" element={<PurchaseForm/>} />
         </Routes>
       </main>
     </HashRouter>
