@@ -206,9 +206,18 @@ const BuildPizza = () => {
   }, []);
 
   return (
-    <div className=" relative w-full min-h-[85vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0" id="build-pizza">
-      <SwirlOrnament styles="  hidden absolute lg:block  lg:top-[-160px] lg:right-[-160px] lg:w-96 lg:h-96 " fillColor="#fff" />
-      <PointsOrnament  styles="  hidden absolute lg:block  lg:bottom-[10px] lg:right-[10px] lg:w-48 lg:h-48 " fillColor="#fff" />
+    <div
+      className=" relative w-full min-h-[85vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0"
+      id="build-pizza"
+    >
+      <SwirlOrnament
+        styles="  hidden absolute lg:block  lg:top-[-160px] animate-pulse   lg:right-[-160px] lg:w-96 lg:h-96  "
+        fillColor="#fff"
+      />
+      <PointsOrnament
+        styles="  hidden absolute lg:block  lg:bottom-[10px] lg:right-[10px] lg:w-48 lg:h-48 animate-pulse "
+        fillColor="#fff"
+      />
       <section className="w-full z-10 lg:w-[50%] lg:min-h-[75vh] min-w-[320px] flex flex-col justify-center items-center ">
         <h2 className="text-4xl md:text-7xl lg:text-6xl font-bold text-center text-white">
           Arma tu pizza
