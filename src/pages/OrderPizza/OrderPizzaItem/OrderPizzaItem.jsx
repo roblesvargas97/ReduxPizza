@@ -23,24 +23,24 @@ const OrderPizzaItem = ({ info }) => {
   return (
     <article className="w-full h-44 flex items-center justify-center border-2 border-white overflow-hidden rounded-lg bg-dark-blue text-dark-blue shadow shadow-white/50 ">
       <div className="w-[40%] flex justify-center items-center h-full bg-gradient-to-tr from-sky-500 via-sky-200 to-white ">
-        <img className="w-full md:w-[70%] md:h-full" src={info.img} alt={info.name} />
+        <img className="w-full md:w-[50%] md:h-full" src={info.img} alt={info.name} />
       </div>
-      <div className=" relative w-[60%] flex flex-col space-y-2 p-2 justify-center overflow-hidden h-full text-white bg-gradient-to-tl from-sky-500 via-transparent to-transparent ">
-        <h3 className=" text-center text-base font-bold">{info.name}</h3>
+      <div className=" relative lg:w-[60%] flex flex-col space-y-2 p-2 justify-center overflow-hidden h-full text-white bg-gradient-to-tl from-sky-500 via-transparent to-transparent ">
+        <h3 className=" text-center text-base md:text-lg font-bold">{info.name}</h3>
         <div className=" custom-scroll rounded-lg space-y-2 flex flex-col items-center w-full">
-          <p className=" text-center text-xs font-bold">Ingredientes:</p>
-          <p className=" text-center text-xs font-light">
+          <p className=" text-center text-xs md:text-lg font-bold">Ingredientes:</p>
+          <p className=" text-center text-xs md:text-lg font-light">
             {separateArrayByComma(info.ingredients)}
           </p>
         </div>
         <div className=" w-full flex space-x-2 flex-wrap justify-center">
-          <p className=" text-left text-xs font-bold">
+          <p className=" text-left text-xs md:text-lg font-bold">
             Tamaño: <span className=" font-light">{info.size}</span>{" "}
           </p>
-          <p className=" text-left text-xs font-bold">
+          <p className=" text-left text-xs md:text-lg font-bold">
             Cantidad: <span className=" font-light">{info.quantity}</span>{" "}
           </p>
-          <p className=" text-left text-xs font-bold">
+          <p className=" text-left text-xs md:text-lg font-bold">
             Precio: <span className=" font-light">${info.finalPrice}MXN</span>{" "}
           </p>
         </div>
