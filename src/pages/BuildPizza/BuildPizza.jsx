@@ -9,6 +9,8 @@ import {
 import VisualizationPizza from "./VisualizationPizza/VisualizationPizza";
 import ArmasteTuPizza from "../../assets/images/ArmasteTuPizza.png";
 import "./styles.css";
+import SwirlOrnament from "../../components/SwirlOrnament/SwirlOrnament";
+import PointsOrnament from "../../components/PointsOrnament/PointsOrnament";
 const BuildPizza = () => {
   const [stateSize, setStateSize] = React.useState("Grande");
   const [statePrice, setStatePrice] = React.useState(135);
@@ -204,8 +206,10 @@ const BuildPizza = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-[85vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0" id="build-pizza">
-      <section className="w-full lg:w-[50%] lg:min-h-[75vh] min-w-[320px] flex flex-col justify-center items-center ">
+    <div className=" relative w-full min-h-[85vh] overflow-hidden p-5 bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col md:items-center lg:items-start lg:flex-row  justify-center space-y-5 lg:space-y-0" id="build-pizza">
+      <SwirlOrnament styles="  hidden absolute lg:block  lg:top-[-160px] lg:right-[-160px] lg:w-96 lg:h-96 " fillColor="#fff" />
+      <PointsOrnament  styles="  hidden absolute lg:block  lg:bottom-[10px] lg:right-[10px] lg:w-48 lg:h-48 " fillColor="#fff" />
+      <section className="w-full z-10 lg:w-[50%] lg:min-h-[75vh] min-w-[320px] flex flex-col justify-center items-center ">
         <h2 className="text-4xl md:text-7xl lg:text-6xl font-bold text-center text-white">
           Arma tu pizza
         </h2>
@@ -426,7 +430,7 @@ const BuildPizza = () => {
           </div>
         </form>
       </section>
-      <section className="w-full lg:w-[50%] lg:min-h-[75vh] flex flex-col justify-center items-center ">
+      <section className="w-full z-10 lg:w-[50%] lg:min-h-[75vh] flex flex-col justify-center items-center ">
         <div className="w-full flex flex-col justify-center items-center space-y-3 md:space-y-5 lg:space-y-3">
           <div className=" flex lg:hidden w-full flex-col justify-center items-center">
             <p className="text-xl md:text-4xl lg:text-xl font-bold text-white">
