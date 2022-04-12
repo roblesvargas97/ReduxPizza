@@ -9,17 +9,17 @@ const About = () => {
       className=" w-full min-h-[85vh] overflow-hidden p-5  bg-white flex flex-col md:items-center lg:items-center lg:flex-row  justify-center space-y-5 lg:space-y-0 "
       id="info"
     >
-      <section className=" h-[80vh] relative lg:w-[50%]  flex flex-col items-center lg:items-start space-y-2">
+      <section className=" md:min-h-[40vh] lg:h-[80vh] relative lg:w-[50%]  flex flex-col items-center lg:items-start space-y-2">
         <SwirlOrnament
           styles=" absolute md:h-96 md:w-96 lg:top-[-250px] lg:left-[calc(100%_-_192px)] md:left-[calc(50%_-_192px)] md:top-[-250px]  hidden md:block  "
           fillColor="#92b1fd"
         />
         <PointsOrnament
-          styles=" absolute h-60 w-60 lg:bottom-0 lg:left-[0] md:bottom-[-150%] md:left-[0]  hidden md:block  "
+          styles=" absolute h-60 w-60 lg:bottom-0 lg:left-[0] md:bottom-[-48vh] md:left-[0]  hidden md:block  "
           fillColor="#92b1fd"
         />
         <PointsOrnament
-          styles=" absolute h-60 lg:bottom-[0] lg:right-[-100%] md:bottom-[-150%] md:right-[0] hidden md:block  "
+          styles=" absolute h-60 lg:bottom-[0] lg:right-[-100%] md:bottom-[-48vh] md:right-[0] hidden md:block  "
           fillColor="#92b1fd"
         />
         <h2 className=" text-4xl z-10 md:text-7xl lg:text-6xl text-dark-blue font-bold text-center lg:text-left ">
@@ -35,7 +35,7 @@ const About = () => {
           alt="Pizza"
         />
       </section>
-      <section className=" h-[80vh] space-y-2 lg:w-[50%]  flex flex-col z-10">
+      <section className=" md:min-h-[40vh] lg:h-[80vh] space-y-2 lg:w-[50%]  flex flex-col z-10">
         <h2 className=" text-4xl md:text-7xl lg:text-6xl text-dark-blue font-bold text-center ">
           Informacion
         </h2>
