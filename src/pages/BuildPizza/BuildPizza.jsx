@@ -221,6 +221,10 @@ const BuildPizza = () => {
         styles="  hidden absolute lg:block  lg:bottom-[10px] lg:right-[10px] lg:w-48 lg:h-48 animate-pulse "
         fillColor="#fff"
       />
+      <PointsOrnament
+        styles="  hidden absolute lg:block  lg:bottom-0 lg:left-0 lg:w-96 lg:h-96 animate-pulse "
+        fillColor="#fff"
+      />
       <section className="w-full z-10 lg:w-[50%] lg:min-h-[75vh] min-w-[320px] flex flex-col justify-center items-center ">
         <h2 className="text-4xl md:text-7xl lg:text-6xl font-bold text-center text-white">
           Arma tu pizza
