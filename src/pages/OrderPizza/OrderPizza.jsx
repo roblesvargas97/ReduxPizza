@@ -1,8 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import OrderPizzaItem from "./OrderPizzaItem/OrderPizzaItem";
+import { useNavigate } from 'react-router-dom';
 
 const OrderPizza = () => {
+
+  const history = useNavigate();
+
   const shoppingCartState = useSelector(
     (state) => state.pizza.pizzaShoppingCart
   );
@@ -12,6 +16,9 @@ const OrderPizza = () => {
     0
   );
 
+  const handleClick = () => {
+    history('/order-form');
+  }
 
   return (
     <div className=" min-w-[320px] p-5 h-[85vh] bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col justify-center items-center space-y-5">
@@ -28,7 +35,7 @@ const OrderPizza = () => {
           <p className="">Precio Total: {shoppingCartItemsPrice} MXN </p>
         </div>
       </div>
-      <button className=" bg-sky-200 rounded-lg  px-3 py-2 text-xl lg:text-lg font-bold text-dark-blue hover:scale-105 transition-all">
+      <button onClick={handleClick} className=" bg-sky-200 rounded-lg  px-3 py-2 text-xl lg:text-lg font-bold text-dark-blue hover:scale-105 transition-all">
         Realizar compra
       </button>
     </div>
