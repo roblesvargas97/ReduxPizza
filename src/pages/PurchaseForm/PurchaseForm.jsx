@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputForm from "./InputForm/InputForm";
+import PointsOrnament from "../../components/PointsOrnament/PointsOrnament";
 
 const PurchaseForm = () => {
   const [name, setName] = React.useState("");
@@ -74,6 +75,14 @@ const PurchaseForm = () => {
 
   return (
     <div className=" relative min-w-[320px] p-5 min-h-[85vh]  bg-gradient-to-r from-dark-blue via-dark-blue to-dark-blue-1 flex flex-col justify-center items-center space-y-5">
+      <PointsOrnament
+        styles="  hidden absolute lg:block  lg:top-[0] animate-pulse   lg:right-[0] lg:w-96 lg:h-96  "
+        fillColor="#fff"
+      />
+      <PointsOrnament
+        styles="  hidden absolute lg:block  lg:bottom-0 lg:left-0 lg:w-96 lg:h-96 animate-pulse "
+        fillColor="#fff"
+      />
       <h1 className="text-4xl md:text-7xl lg:text-6xl font-bold text-center text-white">
         Formulario de Compra
       </h1>
