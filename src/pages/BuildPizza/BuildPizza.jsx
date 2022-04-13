@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   setIngredient,
   removeIngredient,
@@ -21,6 +22,7 @@ const BuildPizza = () => {
   const [stateIngredientsPrice, setStateIngredientsPrice] = React.useState(0);
 
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   const pizzaIngredients = useSelector((state) => state.pizza.ingredientsPizza);
 
@@ -162,6 +164,7 @@ const BuildPizza = () => {
     setStateQuantify(1);
     setStateFinalPrice(0);
     dispatch(emptyIngredientsPizza());
+    history("/order-pizza");
   };
 
   const addQuantify = () => {
