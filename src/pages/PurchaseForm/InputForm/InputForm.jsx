@@ -8,10 +8,10 @@ const InputForm = ({
   typeInput,
 }) => {
   return (
-    <div className="relative">
+    <div className="relative w-[85%]">
       <input
         onChange={(e) => handler(e)}
-        className=" rounded py-2 px-2 text-white text-xl bg-gray-800 focus:outline-none ring-1 ring-blue focus:ring-4 focus:ring-blue transition-all"
+        className="w-full rounded py-2 px-2 text-white text-xl bg-gray-800 focus:outline-none ring-1 ring-blue focus:ring-4 focus:ring-blue transition-all"
         type={typeInput}
         id={idInput}
       />
