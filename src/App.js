@@ -7,11 +7,12 @@ import BuildPizza from "./pages/BuildPizza/BuildPizza";
 import Home from "./pages/Home/Home";
 import BackGroundShoppingCart from "./components/ShoppingCart/BackGroundShoppingCart";
 import { useSelector } from "react-redux";
-import ShoppingCartButtonMobile from './components/ShoppingCart/ShoppingCartButton/ShoppingCartButtonMobile';
+import ShoppingCartButtonMobile from "./components/ShoppingCart/ShoppingCartButton/ShoppingCartButtonMobile";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import BackgroundHeader from "./components/BackgroundHeader/BackgroundHeader";
 import OrderPizza from "./pages/OrderPizza/OrderPizza";
 import PurchaseForm from "./pages/PurchaseForm/PurchaseForm";
+import PurchaseFinished from "./pages/PurchaseFinished/PurchaseFinished";
 
 function App() {
   const ShowCart = useSelector((state) => state.ui.showShoppingCart);
@@ -20,17 +21,18 @@ function App() {
     <HashRouter>
       <Header />
       <HeaderMobile />
-      <BackgroundHeader/>
+      <BackgroundHeader />
       <MenuMobile />
-      <main className="relative" >
-        <ShoppingCartButtonMobile/>
-        {ShowCart && <ShoppingCart/>}
+      <main className="relative">
+        <ShoppingCartButtonMobile />
+        {ShowCart && <ShoppingCart />}
         {ShowCart && <BackGroundShoppingCart />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/build-pizza" element={<BuildPizza />} />
-          <Route path="/order-pizza" element={<OrderPizza/>} />
-          <Route path="/order-form" element={<PurchaseForm/>} />
+          <Route path="/order-pizza" element={<OrderPizza />} />
+          <Route path="/order-form" element={<PurchaseForm />} />
+          <Route path="/order-finished" element={<PurchaseFinished />} />
         </Routes>
       </main>
     </HashRouter>
