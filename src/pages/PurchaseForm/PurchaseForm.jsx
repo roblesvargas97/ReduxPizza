@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import InputForm from "./InputForm/InputForm";
 import PointsOrnament from "../../components/PointsOrnament/PointsOrnament";
 
@@ -11,34 +11,6 @@ const PurchaseForm = () => {
   const [city, setCity] = React.useState("");
   const [cp, setCp] = React.useState("");
   const [error, setError] = React.useState(false);
-
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleLastName = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleNumberPhone = (e) => {
-    setNumberPhone(e.target.value);
-  };
-
-  const handleDirection = (e) => {
-    setDirection(e.target.value);
-  };
-
-  const handleCity = (e) => {
-    setCity(e.target.value);
-  };
-
-  const handleCp = (e) => {
-    setCp(e.target.value);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,28 +69,28 @@ const PurchaseForm = () => {
             Informacion
           </h2>
           <InputForm
-            handler={handleName}
+            handler={setName}
             handlerState={name}
             idInput={"name"}
             labelText={"Nombre"}
             typeInput={"text"}
           />
           <InputForm
-            handler={handleLastName}
+            handler={setLastName}
             handlerState={lastName}
             idInput={"lastName"}
             labelText={"Apellidos"}
             typeInput={"text"}
           />
           <InputForm
-            handler={handleEmail}
+            handler={setEmail}
             handlerState={email}
             idInput={"email"}
             labelText={"Correo Electronico"}
             typeInput={"email"}
           />
           <InputForm
-            handler={handleNumberPhone}
+            handler={setNumberPhone}
             handlerState={numberPhone}
             idInput={"telephone"}
             labelText={"Telefono"}
@@ -128,21 +100,21 @@ const PurchaseForm = () => {
             Dirección
           </h2>
           <InputForm
-            handler={handleDirection}
+            handler={setDirection}
             handlerState={direction}
             idInput={"direction"}
             labelText={"Direccion"}
             typeInput={"text"}
           />
           <InputForm
-            handler={handleCity}
+            handler={setCity}
             handlerState={city}
             idInput={"city"}
             labelText={"Ciudad"}
             typeInput={"text"}
           />
           <InputForm
-            handler={handleCp}
+            handler={setCp}
             handlerState={cp}
             idInput={"cp"}
             labelText={"Codigo Postal"}
