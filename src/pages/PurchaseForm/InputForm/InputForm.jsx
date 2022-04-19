@@ -7,6 +7,8 @@ const InputForm = ({
   typeInput,
   regex,
   errorMessage,
+  empty,
+  setEmpty,
 }) => {
   const [inputValue, setInputValue] = React.useState("");
   const [error, setError] = React.useState(false);
@@ -16,7 +18,7 @@ const InputForm = ({
       <input
         onChange={(e) => {
           const testRegex = regex.test(e.target.value);
-          console.log(testRegex);
+          setEmpty(false);
           if (testRegex) {
             handler(e.target.value);
             setError(false);
@@ -25,7 +27,9 @@ const InputForm = ({
           }
           setInputValue(e.target.value);
         }}
-        className="w-full rounded py-2 px-2 text-white text-xl bg-gray-800 focus:outline-none ring-1 ring-blue focus:ring-4 focus:ring-blue transition-all"
+        className={`${
+          empty ? "ring-red-500 ring-1" : "ring-blue ring-1"
+        } w-full rounded py-2 px-2 text-white text-xl bg-gray-800 focus:outline-none focus:ring-4 focus:ring-blue transition-all`}
         type={typeInput}
         id={idInput}
       />

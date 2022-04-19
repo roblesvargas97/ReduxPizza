@@ -4,12 +4,19 @@ import PointsOrnament from "../../components/PointsOrnament/PointsOrnament";
 
 const PurchaseForm = () => {
   const [name, setName] = React.useState("");
+  const [nameEmpty, setNameEmpty] = React.useState(false);
   const [lastName, setLastName] = React.useState("");
+  const [lastNameEmpty, setLastNameEmpty] = React.useState(false);
   const [email, setEmail] = React.useState("");
+  const [emailEmpty, setEmailEmpty] = React.useState(false);
   const [numberPhone, setNumberPhone] = React.useState("");
+  const [numberPhoneEmpty, setNumberPhoneEmpty] = React.useState(false);
   const [direction, setDirection] = React.useState("");
+  const [directionEmpty, setDirectionEmpty] = React.useState(false);
   const [city, setCity] = React.useState("");
+  const [cityEmpty, setCityEmpty] = React.useState(false);
   const [cp, setCp] = React.useState("");
+  const [cpEmpty, setCpEmpty] = React.useState(false);
   const [error, setError] = React.useState(false);
 
   const handleSubmit = (e) => {
@@ -23,6 +30,15 @@ const PurchaseForm = () => {
       city === "" ||
       cp === ""
     ) {
+      name === "" ? setNameEmpty(true) : setNameEmpty(false);
+      lastName === "" ? setLastNameEmpty(true) : setLastNameEmpty(false);
+      email === "" ? setEmailEmpty(true) : setEmailEmpty(false);
+      numberPhone === ""
+        ? setNumberPhoneEmpty(true)
+        : setNumberPhoneEmpty(false);
+      direction === "" ? setDirectionEmpty(true) : setDirectionEmpty(false);
+      city === "" ? setCityEmpty(true) : setCityEmpty(false);
+      cp === "" ? setCpEmpty(true) : setCpEmpty(false);
       setError(true);
       return;
     }
@@ -76,6 +92,8 @@ const PurchaseForm = () => {
             typeInput={"text"}
             regex={/[a-z]{4,}/}
             errorMessage="El nombre es muy corto."
+            empty={nameEmpty}
+            setEmpty={setNameEmpty}
           />
           <InputForm
             handler={setLastName}
@@ -85,6 +103,8 @@ const PurchaseForm = () => {
             typeInput={"text"}
             regex={/[a-z]{4,}/}
             errorMessage="El apellido es muy corto."
+            empty={lastNameEmpty}
+            setEmpty={setLastNameEmpty}
           />
           <InputForm
             handler={setEmail}
@@ -94,6 +114,8 @@ const PurchaseForm = () => {
             typeInput={"email"}
             regex={/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/}
             errorMessage="El email no es valido"
+            empty={emailEmpty}
+            setEmpty={setEmailEmpty}
           />
           <InputForm
             handler={setNumberPhone}
@@ -103,6 +125,8 @@ const PurchaseForm = () => {
             typeInput={"number"}
             regex={/^[0-9]{10,10}$/}
             errorMessage="El telefono no es valido"
+            empty={numberPhoneEmpty}
+            setEmpty={setNumberPhoneEmpty}
           />
           <h2 className=" text-2xl text-center font-bold text-white">
             Dirección
@@ -113,8 +137,10 @@ const PurchaseForm = () => {
             idInput={"direction"}
             labelText={"Direccion"}
             typeInput={"text"}
-            regex={/^\w{10,}$/}
+            regex={/^[\w\s]{10,}$/}
             errorMessage="La direccion no es valida"
+            empty={directionEmpty}
+            setEmpty={setDirectionEmpty}
           />
           <InputForm
             handler={setCity}
@@ -122,8 +148,10 @@ const PurchaseForm = () => {
             idInput={"city"}
             labelText={"Ciudad"}
             typeInput={"text"}
-            regex={/^[a-z]{4,}$/}
+            regex={/^[A-z\s]{4,}$/}
             errorMessage="La ciudad no es valida."
+            empty={cityEmpty}
+            setEmpty={setCityEmpty}
           />
           <InputForm
             handler={setCp}
@@ -132,7 +160,9 @@ const PurchaseForm = () => {
             labelText={"Codigo Postal"}
             typeInput={"number"}
             regex={/^[0-9]{5,5}$/}
-            errorMessage="La ciudad no es valida."
+            errorMessage="El codigo postal no es valido."
+            empty={cpEmpty}
+            setEmpty={setCpEmpty}
           />
           {error && (
             <span className=" w-[85%] animate-rotateAndShow2 px-3 py-2 h-auto text-center rounded-lg bg-red-500 text-xl font-bold  text-white hover:scale-105 transition-all">
