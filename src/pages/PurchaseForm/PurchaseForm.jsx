@@ -74,6 +74,8 @@ const PurchaseForm = () => {
             idInput={"name"}
             labelText={"Nombre"}
             typeInput={"text"}
+            regex={/[a-z]{4,}/}
+            errorMessage="El nombre es muy corto."
           />
           <InputForm
             handler={setLastName}
@@ -81,6 +83,8 @@ const PurchaseForm = () => {
             idInput={"lastName"}
             labelText={"Apellidos"}
             typeInput={"text"}
+            regex={/[a-z]{4,}/}
+            errorMessage="El apellido es muy corto."
           />
           <InputForm
             handler={setEmail}
@@ -88,6 +92,8 @@ const PurchaseForm = () => {
             idInput={"email"}
             labelText={"Correo Electronico"}
             typeInput={"email"}
+            regex={/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/}
+            errorMessage="El email no es valido"
           />
           <InputForm
             handler={setNumberPhone}
@@ -95,6 +101,8 @@ const PurchaseForm = () => {
             idInput={"telephone"}
             labelText={"Telefono"}
             typeInput={"number"}
+            regex={/^[0-9]{10,10}$/}
+            errorMessage="El telefono no es valido"
           />
           <h2 className=" text-2xl text-center font-bold text-white">
             Dirección
@@ -105,6 +113,8 @@ const PurchaseForm = () => {
             idInput={"direction"}
             labelText={"Direccion"}
             typeInput={"text"}
+            regex={/^\w{10,}$/}
+            errorMessage="La direccion no es valida"
           />
           <InputForm
             handler={setCity}
@@ -112,6 +122,8 @@ const PurchaseForm = () => {
             idInput={"city"}
             labelText={"Ciudad"}
             typeInput={"text"}
+            regex={/^[a-z]{4,}$/}
+            errorMessage="La ciudad no es valida."
           />
           <InputForm
             handler={setCp}
@@ -119,6 +131,8 @@ const PurchaseForm = () => {
             idInput={"cp"}
             labelText={"Codigo Postal"}
             typeInput={"number"}
+            regex={/^[0-9]{5,5}$/}
+            errorMessage="La ciudad no es valida."
           />
           {error && (
             <span className=" w-[85%] animate-rotateAndShow2 px-3 py-2 h-auto text-center rounded-lg bg-red-500 text-xl font-bold  text-white hover:scale-105 transition-all">
@@ -126,7 +140,7 @@ const PurchaseForm = () => {
             </span>
           )}
           <input
-            className=" px-3 py-2 w-auto h-10 md:h-16 lg:h-10 rounded-lg bg-sky-200 text-xl font-bold text-dark-blue hover:scale-105 transition-all"
+            className=" cursor-pointer px-3 py-2 w-auto h-10 md:h-16 lg:h-10 rounded-lg bg-sky-200 text-xl font-bold text-dark-blue hover:scale-105 transition-all"
             type="submit"
             value="Finalizar Pedido"
           />
