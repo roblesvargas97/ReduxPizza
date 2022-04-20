@@ -1,8 +1,9 @@
 import React from "react";
-import { FaSun, FaMoon, FaBars } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { setShowMenuMobile } from "../../Slices/uiSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineClose } from "react-icons/md";
+import ButtonDarkMode from "../ButttonDarkMode/ButtonDarkMode";
 
 const HeaderMobile = () => {
   const dispatch = useDispatch();
@@ -28,14 +29,7 @@ const HeaderMobile = () => {
         src="https://i.imgur.com/KVwBOVw.png"
         alt="logo"
       />
-      <button
-        type="button"
-        className="l w-14 h-7 p-1 flex items-center border-2 rounded-lg bg-white-glass backdrop-blur-sm border-blue justify-between relative cursor-pointer transition-all duration-300 ease-in-out hover:shadow-white"
-      >
-        <FaSun className=" text-white" />
-        <FaMoon className=" text-white" />
-        <span className=" absolute w-7 h-7 bg-white top-[-2px] left-[-2px] rounded-lg" />
-      </button>
+      <ButtonDarkMode />
     </div>
   );
 };
