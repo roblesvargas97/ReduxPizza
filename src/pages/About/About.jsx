@@ -10,7 +10,7 @@ const About = () => {
     <div
       className={` ${
         !darkModeState ? "bg-white" : "bg-slate-900"
-      } w-full min-h-[85vh] overflow-hidden p-5 flex flex-col md:items-center lg:items-center lg:flex-row  justify-center space-y-5 lg:space-y-0 `}
+      } w-full min-h-[85vh] overflow-hidden p-5 flex flex-col md:items-center lg:items-center lg:flex-row  justify-center space-y-5 lg:space-y-0 transition-all duration-500 ease-in-out `}
       id="info"
     >
       <section className=" md:min-h-[40vh] lg:h-[80vh] relative lg:w-[50%]  flex flex-col items-center lg:items-start space-y-2">
