@@ -2,6 +2,7 @@ import React from "react";
 import InfoItem from "../InfoItem/InfoItem";
 import { FaChevronDown } from "react-icons/fa";
 import { HashLink } from "react-router-hash-link";
+import { useSelector } from "react-redux";
 
 const Info = () => {
   const infoArray = [
@@ -19,8 +20,14 @@ const Info = () => {
     },
   ];
 
+  const darkModeState = useSelector((state) => state.ui.darkMode);
+
   return (
-    <div className=" relative w-full min-h-[45vh] md:min-h-[35vh] lg:h-[45vh] flex flex-col items-center p-5 md:flex-row bg-white space-y-5 lg:p-10 md:justify-center md:items-center md:space-x-5 md:space-y-0 ">
+    <div
+      className={`${
+        !darkModeState ? "bg-white" : " bg-slate-900"
+      } relative w-full min-h-[45vh] md:min-h-[35vh] lg:h-[45vh] flex flex-col items-center p-5 md:flex-row space-y-5 lg:p-10 md:justify-center md:items-center md:space-x-5 md:space-y-0 transition-all duration-500 ease-in-out `}
+    >
       {infoArray.map((element, index) => (
         <InfoItem key={index} icon={element.icon} text={element.text} />
       ))}
