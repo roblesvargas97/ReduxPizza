@@ -41,6 +41,17 @@ const Header = () => {
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
         >
+          Inicio
+        </HashLink>
+        <HashLink
+          to="/#menu"
+          scroll={(el) =>
+            el.scrollIntoView({ behavior: "smooth", block: "end" })
+          }
+          className="first-letter:text-blue py-1 px-2 rounded-lg border-2 border-transparent transition-all duration-300  ease-in hover:border-blue hover:text-white hover:first-letter:text-dark-blue hover:bg-cyan-500 hover:animate-bounceButton"
+          data-mdb-ripple="true"
+          data-mdb-ripple-color="light"
+        >
           Menu
         </HashLink>
         <HashLink
