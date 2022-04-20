@@ -31,11 +31,16 @@ const ShoppingCartItem = ({ info }) => {
         <img className="w-full md:w-[70%]" src={info.img} alt={info.name} />
       </div>
       <div className="w-[60%] flex flex-col justify-center overflow-hidden h-full text-white bg-gradient-to-tl from-sky-500 via-transparent to-transparent ">
-        <h3 className=" text-center text-sm md:text-lg lg:text-sm">{info.name}</h3>
+        <h3 className=" text-center text-sm md:text-lg lg:text-sm">
+          {info.name}
+        </h3>
         <div className=" custom-scroll h-6 md:h-10 rounded-lg flex flex-col items-center w-full overflow-y-scroll">
           <ul className=" list-disc pl-5 text-white ">
             {info.ingredients.map((element, index) => (
-              <li className="text-xs md:text-base lg:text-xs font-light" key={index}>
+              <li
+                className="text-xs md:text-base lg:text-xs font-light"
+                key={index}
+              >
                 {element}
               </li>
             ))}
