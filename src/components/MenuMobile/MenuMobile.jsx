@@ -1,10 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { FaPizzaSlice, FaInfo, FaHome, FaSun, FaMoon } from "react-icons/fa";
-import {MdOutlineFoodBank} from 'react-icons/md';
+import { MdOutlineFoodBank } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { HashLink } from "react-router-hash-link";
+import { setShowMenuMobile } from "../../Slices/uiSlice";
 
 const MenuMobile = () => {
+  const dispatch = useDispatch();
+
   const stateShowMobile = useSelector((state) => state.ui.showMenuMobile);
 
   const scrollWithOffset = (el) => {
@@ -13,13 +17,20 @@ const MenuMobile = () => {
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
 
+  const onCloseMenuMobile = (e) => {
+    if (e.target.classList.contains("menu-mobile-container")) {
+      dispatch(setShowMenuMobile(false));
+    }
+  };
+
   return (
     <div
+      onClick={(e) => onCloseMenuMobile(e)}
       className={` ${
         stateShowMobile
           ? " translate-x-0 animate-rotateAndShow2 "
           : " translate-x-[-100%]"
-      } min-w-[320px] w-full h-[85vh] block lg:hidden bg-dark-blue/50 backdrop-blur-[2px] fixed z-50 top-[15vh] left-0 transition-all`}
+      } min-w-[320px] w-full h-[85vh] block lg:hidden bg-dark-blue/50 backdrop-blur-[2px] fixed z-50 top-[15vh] left-0 transition-all menu-mobile-container`}
     >
       <div className="w-[70%] h-full px-10 flex space-y-5 flex-col items-center justify-center bg-gradient-to-t from-dark-blue via-dark-blue to-dark-blue-1 min-w-[320px] md:w-[55%]">
         <h2 className=" font-bold text-white text-3xl ">!Bienvenido¡</h2>
