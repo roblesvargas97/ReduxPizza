@@ -13,6 +13,7 @@ import BackgroundHeader from "./components/BackgroundHeader/BackgroundHeader";
 import OrderPizza from "./pages/OrderPizza/OrderPizza";
 import PurchaseForm from "./pages/PurchaseForm/PurchaseForm";
 import PurchaseFinished from "./pages/PurchaseFinished/PurchaseFinished";
+import Page404 from "./pages/Page404/Page404";
 
 function App() {
   const ShowCart = useSelector((state) => state.ui.showShoppingCart);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/order-pizza" element={<OrderPizza />} />
           <Route path="/order-form" element={<PurchaseForm />} />
           <Route path="/order-finished" element={<PurchaseFinished />} />
+          <Route path="*" element={<Page404/>} />
         </Routes>
       </main>
     </HashRouter>
