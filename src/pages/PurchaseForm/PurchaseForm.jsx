@@ -1,7 +1,9 @@
 import React from "react";
 import InputForm from "./InputForm/InputForm";
 import PointsOrnament from "../../components/PointsOrnament/PointsOrnament";
-
+import { setInfoClient } from "../../Slices/pizzaSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const PurchaseForm = () => {
   const [name, setName] = React.useState("");
   const [nameEmpty, setNameEmpty] = React.useState(false);
@@ -18,6 +20,16 @@ const PurchaseForm = () => {
   const [cp, setCp] = React.useState("");
   const [cpEmpty, setCpEmpty] = React.useState(false);
   const [error, setError] = React.useState(false);
+
+  const dispatch = useDispatch();
+  const history = useNavigate();
+  const shoppingCart = useSelector((state) => state.pizza.pizzaShoppingCart);
+
+  React.useEffect(() => {
+    if (shoppingCart.length === 0) {
+      history("/");
+    }
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +64,8 @@ const PurchaseForm = () => {
       city,
       cp,
     };
-    console.log(infoPurchase);
+    dispatch(setInfoClient(infoPurchase));
+    history("/order-finished");
   };
 
   if (error) {
