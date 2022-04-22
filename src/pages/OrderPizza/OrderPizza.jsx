@@ -11,6 +11,12 @@ const OrderPizza = () => {
     (state) => state.pizza.pizzaShoppingCart
   );
 
+  React.useEffect(()=> {
+    if(shoppingCartState.length === 0){
+      history('/')
+    }
+  },[])
+
   const shoppingCartItemsPrice = shoppingCartState.reduce(
     (a, b) => a + Number(b.price * b.quantity),
     0
