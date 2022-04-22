@@ -15,7 +15,7 @@ const Header = () => {
 
   const scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -80;
+    const yOffset = -110;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
 
