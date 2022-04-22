@@ -154,7 +154,7 @@ const PizzaCarouselItem = ({ infoPizza }) => {
               showAlert
                 ? "bg-green-500 ring-4 ring-green-800 "
                 : "bg-dark-blue "
-            } w-44 rounded-lg hover:bg-blue  hover:border-dark-blue hover:text-dark-blue hover:font-bold  font-light text-base h-12 text-white focus:ring-4 ring-white outline-4 focus:outline-blue transition-all `}
+            } w-44 rounded-lg cursor-pointer hover:bg-blue  hover:border-dark-blue hover:text-dark-blue hover:font-bold  font-light text-base h-12 text-white focus:ring-4 ring-white outline-4 focus:outline-blue transition-all `}
           >
             <option
               className=" text-center text-base font-light"
