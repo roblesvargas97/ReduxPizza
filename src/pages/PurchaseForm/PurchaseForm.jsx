@@ -4,6 +4,7 @@ import PointsOrnament from "../../components/PointsOrnament/PointsOrnament";
 import { setInfoClient } from "../../Slices/pizzaSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { resetShoppingCart } from "../../Slices/pizzaSlice";
 const PurchaseForm = () => {
   const [name, setName] = React.useState("");
   const [nameEmpty, setNameEmpty] = React.useState(false);
@@ -65,6 +66,7 @@ const PurchaseForm = () => {
       cp,
     };
     dispatch(setInfoClient(infoPurchase));
+    dispatch(resetShoppingCart());
     history("/order-finished");
   };
 

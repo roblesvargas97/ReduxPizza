@@ -67,6 +67,9 @@ export const pizzaSlice = createSlice({
         (element) => element.id !== action.payload
       );
     },
+    resetShoppingCart: (state, action) => {
+      state.pizzaShoppingCart = [];
+    },
     calculatePriceAccordingToQuantity: (state, action) => {
       const itemPosition = state.pizzaShoppingCart.findIndex(
         (element) => element.id === action.payload
@@ -92,6 +95,7 @@ export const {
   removeItemShoppingCart,
   calculatePriceAccordingToQuantity,
   setInfoClient,
+  resetShoppingCart
 } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
