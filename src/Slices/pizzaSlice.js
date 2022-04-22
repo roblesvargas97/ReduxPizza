@@ -3,6 +3,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   ingredientsPizza: ["Queso Mozarella"],
   pizzaShoppingCart: [],
+  infoOrderClient: {},
 };
 
 export const pizzaSlice = createSlice({
@@ -74,7 +75,9 @@ export const pizzaSlice = createSlice({
       const initialPrice = state.pizzaShoppingCart[itemPosition].price;
       const finalPrice = (state.pizzaShoppingCart[itemPosition].finalPrice =
         quantity * initialPrice);
-
+    },
+    setInfoClient: (state, action) => {
+      state.infoOrderClient = action.payload;
     },
   },
 });
@@ -88,6 +91,7 @@ export const {
   decreaseQuantityShoppinCart,
   removeItemShoppingCart,
   calculatePriceAccordingToQuantity,
+  setInfoClient,
 } = pizzaSlice.actions;
 
 export default pizzaSlice.reducer;
